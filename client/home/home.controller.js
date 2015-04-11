@@ -6,14 +6,16 @@
     .module( 'blackjack' )
     .controller( 'HomeController', HomeController );
 
-  HomeController.$inject = [];
+  HomeController.$inject = [
+    'RoomService'
+  ];
 
-  function HomeController() {
+  function HomeController( RoomService ) {
 
     var vm = this;
 
     ///////////// Properties
-    vm.totalPlayers = 1;
+    vm.totalPlayers = RoomService.numberOfPlayers;
 
     ///////////// Public Methods
     vm.addRemovePlayer = addRemovePlayer;
