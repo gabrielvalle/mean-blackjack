@@ -9,13 +9,15 @@
   RoomService.$inject = [];
 
   function RoomService() {
+
+    var self = this;
   
     ///////////// Properties
-    this.numberOfPlayers = 1;
-    this.playersData     = [];
+    self.numberOfPlayers = 1;
+    self.playersData     = [];
 
     ///////////// Methods
-    this.createPlayers = createPlayers;
+    self.createPlayers = createPlayers;
 
     ///////////// Methods Declaration
     function Player( number ) {
@@ -29,9 +31,19 @@
 
     function createPlayers( numberOfPlayers ) {
       
+      self.playersData = [];
+
       if ( typeof numberOfPlayers === 'number' && numberOfPlayers === numberOfPlayers ) {
+
+        var i = 1;
+
+        for ( i; i <= numberOfPlayers; i += 1) {
+          self.playersData.push( new Player( i ));
+        }
         
       }
+
+      return self.playersData;
     
     }
 
