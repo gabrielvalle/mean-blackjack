@@ -22,7 +22,29 @@
   </section>
   
   <aside>
+    <!-- Dealer -->
     <!-- All Players -->
+    <div class="standby-player-box"
+         ng-repeat="player in vm.playersData">
+      <span ng-bind="player.name"></span>
+      <div class="standby-player-info">
+        <div>
+          <span class="micro-cards"
+                ng-repeat="card in player.hand"
+                ng-bind="card">
+          </span>
+        </div>
+        <div>
+          <strong>$</strong>
+          <span ng-bind="player.wager">
+          </span>
+           /
+          <strong> $</strong>
+          <span ng-bind="player.money">
+          </span>
+        </div>
+      </div>
+    </div>
 
     <!-- Quit -->
   </aside>

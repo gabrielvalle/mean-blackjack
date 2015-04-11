@@ -15,6 +15,7 @@
     ///////////// Properties
     self.numberOfPlayers = 1;
     self.playersData     = [];
+    self.currentPlayer   = 1;
 
     ///////////// Methods
     self.createPlayers = createPlayers;

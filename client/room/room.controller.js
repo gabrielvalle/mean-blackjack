@@ -15,8 +15,9 @@
     var vm = this;
   
     ///////////// Properties
-    vm.totalPlayers = RoomService.numberOfPlayers;
-    vm.playersData  = [];
+    vm.totalPlayers  = RoomService.numberOfPlayers;
+    vm.playersData   = [];
+    vm.currentPlayer = vm.playersData[ RoomService.currentPlayer ];
 
     ///////////// Public Methods
 
@@ -28,7 +29,7 @@
     function _init() {
 
       vm.playersData = _createPlayers( vm.totalPlayers );
-      console.log( JSON.stringify( vm.playersData, null, 2 ));
+      //console.log( JSON.stringify( vm.playersData, null, 2 ));
 
     }
 
