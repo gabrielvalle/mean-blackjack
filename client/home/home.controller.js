@@ -8,10 +8,11 @@
 
   HomeController.$inject = [
     'RoomService',
-    '$state'
+    '$state',
+    'toastr'
   ];
 
-  function HomeController( RoomService, $state ) {
+  function HomeController( RoomService, $state, toastr ) {
 
     var vm = this;
 
@@ -35,8 +36,8 @@
       if ( typeof value === 'number' && value !== value ) {
         return;
       } else if ( value === -1 && players <= 1 ) {
-        console
-          .log( 'You need at least one player' );
+        toastr
+          .info( 'You need at least one player' );
       } else {
         players += value;
       }

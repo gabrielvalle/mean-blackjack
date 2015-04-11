@@ -4,7 +4,7 @@
   <!-- wager box -->
   <div class="wager-box">
     <div class="wager-title">
-      {{ vm.currentGambler.name }} | $ {{ vm.currentGambler.money - vm.wager }}
+      {{ vm.currentGambler.name }} | Total money: $ {{ vm.currentGambler.money - vm.wager }}
     </div>
     <p>
       <input type="text"
@@ -39,6 +39,10 @@
         <span>
           Total: {{ vm.currentPlayer.money }}
         </span>
+      </div>
+      <div>
+        <button>Hit</button>
+        <button>Stand</button>
       </div>
     </div>
   </section>
@@ -75,10 +79,6 @@
           <strong> $</strong>
           <span ng-bind="player.money">
           </span>
-        </div>
-        <div>
-          <span>Hit</span>
-          <span>Stand</span>
         </div>
       </div>
     </div>

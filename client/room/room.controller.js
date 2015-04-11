@@ -65,6 +65,7 @@
       } else {
         
         player.wager                 = wager;
+        player.money                 -= wager;
         vm.playersData[ id - 1 ]     = player;
         DealerService.currentGambler = id;
 
