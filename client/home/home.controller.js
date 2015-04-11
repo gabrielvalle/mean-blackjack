@@ -7,10 +7,11 @@
     .controller( 'HomeController', HomeController );
 
   HomeController.$inject = [
-    'RoomService'
+    'RoomService',
+    '$state'
   ];
 
-  function HomeController( RoomService ) {
+  function HomeController( RoomService, $state ) {
 
     var vm = this;
 
@@ -19,6 +20,7 @@
 
     ///////////// Public Methods
     vm.addRemovePlayer = addRemovePlayer;
+    vm.goToRoom        = goToRoom;
 
     ///////////// Private Methods
 
@@ -39,6 +41,13 @@
       }
 
       vm.totalPlayers = players;
+
+    }
+
+    function goToRoom() {
+      
+      RoomService.numberOfPlayers = vm.totalPlayers;
+      $state.go( 'room' );
 
     }
 

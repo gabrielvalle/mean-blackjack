@@ -11,8 +11,11 @@
   ];
 
   function RoomController( RoomService ) {
+
+    var vm = this;
   
     ///////////// Properties
+    vm.totalPlayers = RoomService.numberOfPlayers;
 
     ///////////// Public Methods
 
