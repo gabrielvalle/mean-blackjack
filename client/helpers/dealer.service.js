@@ -13,6 +13,7 @@
     var self = this;
 
     ///////////// Properties
+    self.message = 'Your turn!';
 
     ///////////// Methods
 

@@ -7,17 +7,19 @@
     .controller( 'RoomController', RoomController );
 
   RoomController.$inject = [
-    'RoomService'
+    'RoomService',
+    'DealerService'
   ];
 
-  function RoomController( RoomService ) {
+  function RoomController( RoomService, DealerService ) {
 
     var vm = this;
   
     ///////////// Properties
     vm.totalPlayers  = RoomService.numberOfPlayers;
     vm.playersData   = [];
-    vm.currentPlayer = vm.playersData[ RoomService.currentPlayer ];
+    vm.dealerData    = { hand : [] };
+    vm.message       = DealerService.message;
 
     ///////////// Public Methods
 

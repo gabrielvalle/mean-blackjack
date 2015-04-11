@@ -2,27 +2,28 @@
   
   <section>
     <!-- Message Box-->
-    <div class="msg-box">
-      <divi class="msg-title">
-        <strong>
-          Total players:
-        </strong>
-        <span ng-bind="vm.totalPlayers">
-        </span>
-        /
-        <strong>
-         Current Player:
-        </strong>
-        <span ng-bind="vm.currentPlayer.number">
-        </span>
-      </div>
+    <div class="msg-box" ng-bind="vm.message">
     </div>
 
     <!-- Actual Player Box -->
+    <div class="actual-player">
+      
+    </div>
   </section>
   
   <aside>
     <!-- Dealer -->
+    <div class="standby-player-box">
+      <span>Dealer</span>
+      <div class="standby-player-info">
+        <div>
+          <span class="micro-cards"
+                ng-repeat="card in vm.dealerData.hand"
+                ng-bind="card">
+          </span>
+        </div>
+      </div>
+    </div>
     <!-- All Players -->
     <div class="standby-player-box"
          ng-repeat="player in vm.playersData">
