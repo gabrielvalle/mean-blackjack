@@ -6,15 +6,19 @@
     .module( 'blackjack' )
     .service( 'DealerService', DealerService );
 
-  DealerService.$inject = [];
+  DealerService.$inject = [
+    'RoomService'
+  ];
 
-  function DealerService() {
+  function DealerService( RoomService ) {
   
     var self = this;
 
     ///////////// Properties
-    self.message       = 'Your turn!';
-    self.currentPlayer = 0;
+    self.message        = 'Your turn!';
+    self.currentGambler = 0;
+    self.currentPlayer  = 0;
+    self.readyToGo      = false;
 
     ///////////// Methods
 

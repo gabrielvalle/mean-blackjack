@@ -1,5 +1,20 @@
-<div>
+<div ng-hide="vm.readyToGo">
+  <h2>Set your wager</h2>
   
+  <!-- wager box -->
+  <div class="wager-box">
+    <div class="wager-title">
+      {{ vm.currentGambler.name }} | $ {{ vm.currentGambler.money - vm.wager }}
+    </div>
+    <p>
+      <input type="text"
+             ng-model="vm.wager">
+      <button ng-click="vm.setWager( vm.currentGambler.id, vm.wager )">Ok</button>
+    </p>
+  </div>
+</div>
+
+<div ng-show="vm.readyToGo">
   <section>
     <!-- Message Box-->
     <div class="msg-box" ng-bind="vm.message">
@@ -60,6 +75,10 @@
           <strong> $</strong>
           <span ng-bind="player.money">
           </span>
+        </div>
+        <div>
+          <span>Hit</span>
+          <span>Stand</span>
         </div>
       </div>
     </div>

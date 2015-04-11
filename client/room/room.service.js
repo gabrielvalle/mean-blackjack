@@ -27,6 +27,7 @@
       this.hand  = [];
       this.wager = 0;
       this.money = 1000;
+      this.id    = number;
 
     }
 

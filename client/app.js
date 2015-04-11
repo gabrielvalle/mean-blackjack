@@ -4,7 +4,9 @@
 
   angular
     .module( 'blackjack', [
-      'ui.router'
+      'ui.router',
+      'ngAnimate',
+      'toastr'
     ])
     .config( function( $stateProvider, $urlRouterProvider ) {
 
