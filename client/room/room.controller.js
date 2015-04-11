@@ -8,10 +8,11 @@
 
   RoomController.$inject = [
     'RoomService',
-    'DealerService'
+    'DealerService',
+    '$state'
   ];
 
-  function RoomController( RoomService, DealerService ) {
+  function RoomController( RoomService, DealerService, $state ) {
 
     var vm = this;
   
@@ -23,6 +24,7 @@
     vm.currentPlayer = [];
 
     ///////////// Public Methods
+    vm.quit = quit;
 
     ///////////// Private Methods
     var _init = _init;
@@ -35,6 +37,12 @@
       //console.log( JSON.stringify( vm.playersData, null, 2 ));
       vm.currentPlayer = vm.playersData[ 0 ];
 
+    }
+
+    function quit() {
+      RoomService.numberOfPlayers = 1;
+      $state
+        .go( 'home' );
     }
 
     ///////////// Start

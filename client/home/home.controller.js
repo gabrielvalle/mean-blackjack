@@ -35,7 +35,8 @@
       if ( typeof value === 'number' && value !== value ) {
         return;
       } else if ( value === -1 && players <= 1 ) {
-        console.log( 'You need at least one player' );
+        console
+          .log( 'You need at least one player' );
       } else {
         players += value;
       }
@@ -47,7 +48,8 @@
     function goToRoom() {
       
       RoomService.numberOfPlayers = vm.totalPlayers;
-      $state.go( 'room' );
+      $state
+        .go( 'room' );
 
     }
 
