@@ -1,4 +1,33 @@
 <div>
-  <h1>Home</h1>
+  <header>
+    <h1>MEAN Blackjack</h1>
+  </header>
+
+  <section>
+    <div class="players-box">
+      <div class="players-box title">
+        Number of Players
+      </div>
+      <div class="players-box number"
+           ng-bind="vm.totalPlayers">        
+      </div>
+      <div class="players-box options">
+        <button ng-click="vm.addRemovePlayer( 1 )">
+          +
+        </button>
+        <button ng-click="vm.addRemovePlayer( -1 )">
+          -
+        </button>
+        <button>
+          Start
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
   <h3 ui-sref="room">Room</h3>
 </div>
