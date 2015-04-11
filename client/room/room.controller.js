@@ -20,6 +20,7 @@
     vm.playersData   = [];
     vm.dealerData    = { hand : [] };
     vm.message       = DealerService.message;
+    vm.currentPlayer = [];
 
     ///////////// Public Methods
 
@@ -32,6 +33,7 @@
 
       vm.playersData = _createPlayers( vm.totalPlayers );
       //console.log( JSON.stringify( vm.playersData, null, 2 ));
+      vm.currentPlayer = vm.playersData[ 0 ];
 
     }
 

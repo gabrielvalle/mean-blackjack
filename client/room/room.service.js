@@ -16,7 +16,6 @@
     self.numberOfPlayers = 1;
     self.playersData     = [];
     self.currentPlayer   = 1;
-    self.message         = 'Your turn!';
 
     ///////////// Methods
     self.createPlayers = createPlayers;

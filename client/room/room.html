@@ -7,7 +7,24 @@
 
     <!-- Actual Player Box -->
     <div class="actual-player">
-      
+      <span class="actual-player name"
+            ng-bind="vm.currentPlayer.name">
+      </span>
+      <div class="macro-cards"
+           ng-repeat="card in vm.currentPlayer.hand"
+           ng-bind="card">
+      </div>
+      <div actual-player-info>
+        <span>
+          Wager: {{ vm.currentPlayer.wager }}
+        </span>
+        <span>
+          /
+        </span>
+        <span>
+          Total: {{ vm.currentPlayer.money }}
+        </span>
+      </div>
     </div>
   </section>
   

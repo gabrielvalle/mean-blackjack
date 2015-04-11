@@ -13,7 +13,8 @@
     var self = this;
 
     ///////////// Properties
-    self.message = 'Your turn!';
+    self.message       = 'Your turn!';
+    self.currentPlayer = 0;
 
     ///////////// Methods
 
