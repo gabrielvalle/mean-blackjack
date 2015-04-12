@@ -30,7 +30,8 @@
     ///////////// Methods Declarations
     function _init() {
 
-      _calculateResults( vm.playersData, vm.dealerData );
+      vm.allResults = _calculateResults( vm.playersData, vm.dealerData );
+      console.log( JSON.stringify( vm.allResults, null, 2 ));
 
     }
 
@@ -41,14 +42,14 @@
     * @param {Object} info - Informations about the player's last round
     *
     **/    
-    function Result( info ) {
+    function Result( player, result ) {
 
-      this.player = info.name;
-      this.score  = info.score;
-      this.hand   = info.hand;
-      this.wager  = info.wager;
-      this.money  = info.money;
-      this.result = info.result;
+      this.player = player.name;
+      this.score  = player.score;
+      this.hand   = player.hand;
+      this.wager  = player.wager;
+      this.money  = player.money;
+      this.result = result;
 
     }
 
@@ -61,24 +62,48 @@
         .forEach( function( player ) {
 
           if ( player.score > 21 ) {
+
             results
-              .push( new Result({
-                name : player.name,
-                score : player.score,
-                hand : player.hand,
-                wager : player.wager,
-                money : player.money,
-                result : 'Lost'
-              }));
+              .push( new Result( player, 'Burst' ));
+
+          } else if ( player.score === 21 && player.hands.length === 2 ) {
+
+            results
+              .push( new Result( player, 'Won / Blackjack' ));
+
+            _payThePlayer( player, player.wager * 2.5 );
+
+          } else if ( player.score <= 21 && player.score < dealer.score ) {
+
+            results
+              .push( new Result( player, 'Lost' ));
+
+          } else if ( player.score <= 21 && player.score === dealer.score ) {
+
+            results
+              .push( new Result( player, 'Tie / Push' ));
+
+            _payThePlayer( player, player.wager );
+
+          } else if ( player.score <= 21 && player.score > dealer.score ) {
+
+            results
+              .push( new Result( player, 'Won' ));
+
+            _payThePlayer( player, player.wager * 2 );
+
           }
 
         });
 
-      console.log( JSON.stringify( results, null, 2 ));
+        return results;
 
     }
 
     function _payThePlayer( player, amount ) {
+
+      player.money += amount;
+      vm.playersData[ player.id - 1 ] = player;
 
     }
 
