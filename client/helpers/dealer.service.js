@@ -7,10 +7,11 @@
     .service( 'DealerService', DealerService );
 
   DealerService.$inject = [
-    'RoomService'
+    'RoomService',
+    '$rootScope'
   ];
 
-  function DealerService( RoomService ) {
+  function DealerService( RoomService, $rootScope ) {
   
     var self = this;
 
@@ -110,7 +111,8 @@
     */
     function distributeCards( players ) {
 
-      self.createDeck();
+      self
+        .createDeck();
 
       players
         .push( self.dealerData );
@@ -118,8 +120,10 @@
       players
         .forEach( function( player ) {
         
-          self.giveCard( self.deck.length, player );
-          self.giveCard( self.deck.length, player );
+          self
+            .giveCard( self.deck.length, player );
+          self
+            .giveCard( self.deck.length, player );
         
         });
 
@@ -140,6 +144,7 @@
     function dealerAI( player, action ) {
 
       if ( action === 'hit' && !player.stand ) {
+        console.log( JSON.stringify( player ));
         _handleHit( player );
       } else if ( action === 'stand' ) {
         _handleStand( player );
@@ -156,22 +161,60 @@
     **/    
     function _calculateScore( hand ) {
 
-      // hand
-      //   .forEach( function( card ) {
+      var score = 0;
 
-      //     if ( card.name === 'A' ) {
+      hand
+        .forEach( function( card ) {
 
+          if ( card.name === 'A' ) {
 
+            score += 1;
 
-      //     }
+          } else if ( card.name === 'J' || card.name === 'Q' || card.name === 'K' ) {
 
-      //   });
+            score += 10;
+
+          } else {
+
+            score += Number( card.name, 10 );
+
+          }
+
+        });
+
+      return score;
 
     }
 
     function _handleHit( player ) {
 
-      if ( !player.stand ) {}
+      var totalScore = 0;
+
+      if ( !player.stand ) {
+
+        self
+          .giveCard( self.deck.length, player );
+
+        totalScore   = _calculateScore( player.hand );
+        player.score = totalScore; 
+
+        if ( totalScore >= 21 ) {
+
+          player.stand = true;
+
+          RoomService
+            .playersData[ player.id - 1 ] = player;
+
+          $rootScope
+            .$broadcast( 'next-player' );
+
+        } 
+
+      } else {
+
+        console.log( 'stand' );
+
+      }
 
     }
   

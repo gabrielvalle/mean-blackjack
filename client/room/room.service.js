@@ -28,7 +28,7 @@
       this.wager = 0;
       this.money = 1000;
       this.stand = false;
-      this.score = [];
+      this.score = 0;
       this.id    = number;
 
     }

@@ -10,10 +10,11 @@
     'RoomService',
     'DealerService',
     '$state',
-    'toastr'
+    'toastr',
+    '$scope'
   ];
 
-  function RoomController( RoomService, DealerService, $state, toastr ) {
+  function RoomController( RoomService, DealerService, $state, toastr, $scope ) {
 
     var vm = this;
   
@@ -85,8 +86,7 @@
           DealerService.currentGambler = 0;
           vm.currentGambler            = {};
           vm.readyToGo                 = true;
-
-          vm.currentPlayer = vm.playersData[ 0 ];
+          vm.currentPlayer             = vm.playersData[ 0 ];
 
         }
       }
@@ -98,6 +98,14 @@
     function playerAction( player, action ) {
       DealerService.dealerAI( player, action );
     }
+
+    ///////////// $broadcast events
+    $scope
+      .$on( 'next-player', function() {
+
+        console.log( 'next-player' );
+
+      });
 
     ///////////// Start
     _init();
