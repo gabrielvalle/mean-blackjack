@@ -43,7 +43,13 @@
     }
 
     function quit() {
-      RoomService.numberOfPlayers = 1;
+
+      RoomService.numberOfPlayers  = 1;
+      DealerService.currentGambler = 0;
+      vm.currentGambler            = {};
+      vm.readyToGo                 = false;
+      vm.wager                     = '';
+
       $state
         .go( 'home' );
     }
@@ -75,7 +81,7 @@
 
         } else {
           
-          DealerService.currentGambler = '';
+          DealerService.currentGambler = 0;
           vm.currentGambler = {};
           vm.readyToGo = true;
 
