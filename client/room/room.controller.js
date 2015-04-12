@@ -113,6 +113,11 @@
             playerAction( vm.dealerData, 'hit' );
           }
 
+          RoomService.playersData  = vm.playersData;
+
+          // console.log( JSON.stringify( RoomService.playersData, null, 2 ));
+          // console.log( JSON.stringify( DealerService.dealerData, null, 2 ));
+
           $state
             .go( 'result' );
         }

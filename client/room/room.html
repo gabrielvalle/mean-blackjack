@@ -21,10 +21,10 @@
       <span class="actual-player name"
             ng-bind="vm.currentPlayer.name">
       </span>
-      <div class="macro-cards"
+      <span class="macro-cards"
            ng-repeat="card in vm.currentPlayer.hand">
         {{ card.name }}{{ card.suit }}
-      </div>
+      </span>
       <div actual-player-info>
         <span>
           Wager: {{ vm.currentPlayer.wager }}
