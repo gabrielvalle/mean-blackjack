@@ -103,7 +103,13 @@
     $scope
       .$on( 'next-player', function() {
 
-        console.log( 'next-player' );
+        DealerService.currentPlayer += 1;
+
+        if ( DealerService.currentPlayer < vm.playersData.length ) {
+          vm.currentPlayer = vm.playersData[ DealerService.currentPlayer ];
+        } else {
+          console.log( 'Pay the players' );
+        }
 
       });
 

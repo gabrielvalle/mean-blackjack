@@ -168,7 +168,11 @@
 
           if ( card.name === 'A' ) {
 
-            score += 1;
+            if ( score += 11 > 21 ) {
+              score += 1;
+            } else {
+              score += 11;
+            }
 
           } else if ( card.name === 'J' || card.name === 'Q' || card.name === 'K' ) {
 
@@ -208,13 +212,21 @@
           $rootScope
             .$broadcast( 'next-player' );
 
-        } 
-
-      } else {
-
-        console.log( 'stand' );
+        }
 
       }
+
+    }
+
+    function _handleStand( player ) {
+
+      player.stand = true;
+
+      RoomService
+        .playersData[ player.id - 1 ] = player;
+
+      $rootScope
+        .$broadcast( 'next-player' );
 
     }
   
