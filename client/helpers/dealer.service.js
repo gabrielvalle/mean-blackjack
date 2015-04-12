@@ -124,6 +124,8 @@
             .giveCard( self.deck.length, player );
           self
             .giveCard( self.deck.length, player );
+
+          player.score = _calculateScore( player.hand );
         
         });
 
