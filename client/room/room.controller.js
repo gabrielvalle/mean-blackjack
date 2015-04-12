@@ -109,6 +109,7 @@
           vm.currentPlayer = vm.playersData[ DealerService.currentPlayer ];
         } else {
           console.log( 'Pay the players' );
+          console.log( vm.dealerData );
         }
 
       });

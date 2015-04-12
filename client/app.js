@@ -23,6 +23,11 @@
           url : '/room',
           controller : 'RoomController as vm',
           templateUrl : 'room/room.html'
+        })
+        .state( 'result', {
+          url : '/result',
+          controller : 'ResultController as vm',
+          templateUrl : 'result/result.html'
         });
 
     });
