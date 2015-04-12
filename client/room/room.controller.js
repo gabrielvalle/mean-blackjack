@@ -41,6 +41,8 @@
       vm.playersData    = DealerService.distributeCards( players );
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
 
+      console.log( JSON.stringify( vm.playersData, null, 2 ));
+
     }
 
     function quit() {

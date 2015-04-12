@@ -104,7 +104,7 @@
     
       player
         .hand
-        .push( self.deck.splice( random, 1 ));
+        .push( self.deck.splice( random, 1 )[ 0 ]);
     
     }
 

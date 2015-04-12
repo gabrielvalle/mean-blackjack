@@ -26,8 +26,8 @@
             ng-bind="vm.currentPlayer.name">
       </span>
       <div class="macro-cards"
-           ng-repeat="card in vm.currentPlayer.hand"
-           ng-bind="card">
+           ng-repeat="card in vm.currentPlayer.hand">
+        {{ card.name }}{{ card.suit }}
       </div>
       <div actual-player-info>
         <span>
@@ -53,9 +53,11 @@
       <span>Dealer</span>
       <div class="standby-player-info">
         <div>
-          <span class="micro-cards"
-                ng-repeat="card in vm.dealerData.hand"
-                ng-bind="card">
+          <span class="micro-cards">
+            {{ vm.dealerData.hand[ 0 ].name }}{{ vm.dealerData.hand[ 0 ].suit }}
+          </span>
+          <span class="micro-cards">
+            ☒
           </span>
         </div>
       </div>
@@ -67,8 +69,8 @@
       <div class="standby-player-info">
         <div>
           <span class="micro-cards"
-                ng-repeat="card in player.hand"
-                ng-bind="card">
+                ng-repeat="card in player.hand">
+            {{ card.name }}{{ card.suit }}
           </span>
         </div>
         <div>
