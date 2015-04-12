@@ -13,6 +13,12 @@
   </div>
 
   <!-- All players results -->
+  <div class="players-result"
+       ng-repeat="result in vm.allResults">
+    <span ng-bind="result.player"></span>
+    <span ng-bind="result.result"></span>
+    $<span ng-bind="result.prize"></span>
+  </div>
 
   <!-- Play again button -->
 

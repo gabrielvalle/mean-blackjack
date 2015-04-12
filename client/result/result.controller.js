@@ -42,7 +42,7 @@
     * @param {Object} info - Informations about the player's last round
     *
     **/    
-    function Result( player, result ) {
+    function Result( player, result, prize ) {
 
       this.player = player.name;
       this.score  = player.score;
@@ -50,6 +50,7 @@
       this.wager  = player.wager;
       this.money  = player.money;
       this.result = result;
+      this.prize  = prize;
 
     }
 
@@ -64,37 +65,39 @@
           if ( player.score > 21 ) {
 
             results
-              .push( new Result( player, 'Burst' ));
+              .push( new Result( player, 'Burst', player.wager ));
 
           } else if ( player.score === 21 && player.hand.length === 2 ) {
 
             results
-              .push( new Result( player, 'Won / Blackjack' ));
+              .push( new Result( player, 'Won / Blackjack', player.wager * 2.5 ));
 
             _payThePlayer( player, player.wager * 2.5 );
 
           } else if ( player.score <= 21 && player.score < dealer.score ) {
 
             results
-              .push( new Result( player, 'Lost' ));
+              .push( new Result( player, 'Lost', player.wager ));
 
           } else if ( player.score <= 21 && player.score === dealer.score ) {
 
             results
-              .push( new Result( player, 'Tie / Push' ));
+              .push( new Result( player, 'Tie / Push', 0 ));
 
             _payThePlayer( player, player.wager );
 
           } else if ( player.score <= 21 && player.score > dealer.score ) {
 
             results
-              .push( new Result( player, 'Won' ));
+              .push( new Result( player, 'Won', player.wager * 2 ));
 
             _payThePlayer( player, player.wager * 2 );
 
           }
 
         });
+
+        RoomService.playersData = vm.playersData;
 
         return results;
 
