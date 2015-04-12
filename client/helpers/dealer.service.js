@@ -224,24 +224,24 @@
 
       var totalScore = 0;
 
-      if ( !player.stand ) {
+      self
+        .giveCard( self.deck.length, player );
 
-        self
-          .giveCard( self.deck.length, player );
+      totalScore   = _calculateScore( player.hand );
+      player.score = totalScore; 
 
-        totalScore   = _calculateScore( player.hand );
-        player.score = totalScore; 
+      if ( totalScore >= 21 ) {
 
-        if ( totalScore >= 21 ) {
+        player.stand = true;
 
-          player.stand = true;
+        if ( player.id ) {
 
           RoomService
             .playersData[ player.id - 1 ] = player;
 
           $rootScope
             .$broadcast( 'next-player' );
-
+            
         }
 
       }
