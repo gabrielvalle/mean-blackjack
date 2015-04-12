@@ -104,7 +104,7 @@
     
       player
         .hand
-        .push( vm.deck.splice( random, 1 ));
+        .push( self.deck.splice( random, 1 ));
     
     }
 
@@ -117,27 +117,27 @@
     function _randomNumberGenerator( min, max ) {  
       return Math.floor( Math.random() * ( max - min )) + min;  
     }
-  
-  }
 
-  function distributeCards( playersArray ) {
-  
-    console.log( playersArray, self.deck );
+    function distributeCards( playersArray ) {
 
-    playersArray
-      .push( self.dealerData );
+      self.createDeck();
 
-    playersArray
-      .forEach( function( player ) {
+      playersArray
+        .push( self.dealerData );
+
+      playersArray
+        .forEach( function( player ) {
+        
+          self.giveCard( self.deck.length, player );
+          self.giveCard( self.deck.length, player );
+        
+        });
+
+      self.dealerData = playersArray.splice( playersArray.length - 1, 1 )[ 0 ];
       
-        self.giveCard( self.deck.length, player );
-        self.giveCard( self.deck.length, player );
-      
-      });
-
-    self.dealerData = playersArray.splice( playersArray.length - 1, 1 );
+      return playersArray;
     
-    return playersArray;
+    }
   
   }
 

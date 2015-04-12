@@ -40,7 +40,9 @@
         var i = 1;
 
         for ( i; i <= numberOfPlayers; i += 1) {
-          self.playersData.push( new Player( i ));
+          self
+            .playersData
+            .push( new Player( i ));
         }
         
       }

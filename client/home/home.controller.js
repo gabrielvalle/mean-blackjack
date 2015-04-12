@@ -8,11 +8,12 @@
 
   HomeController.$inject = [
     'RoomService',
+    'DealerService',
     '$state',
     'toastr'
   ];
 
-  function HomeController( RoomService, $state, toastr ) {
+  function HomeController( RoomService, DealerService, $state, toastr ) {
 
     var vm = this;
 
@@ -24,6 +25,7 @@
     vm.goToRoom        = goToRoom;
 
     ///////////// Private Methods
+    var _init = _init;
 
     ///////////// Methods Declarations
     /*
@@ -48,8 +50,10 @@
 
     function goToRoom() {
       
-      RoomService.numberOfPlayers = vm.totalPlayers;
-      RoomService.createPlayers( vm.totalPlayers );
+      RoomService
+        .numberOfPlayers = vm.totalPlayers;
+      // RoomService
+      //   .createPlayers( vm.totalPlayers );
 
       $state
         .go( 'room' );
