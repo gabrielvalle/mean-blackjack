@@ -38,6 +38,7 @@
     ///////////// Methods Declaration
     function _init() {
 
+      console.log( JSON.stringify( vm.currentPlayer, null, 2 ));
       console.log( JSON.stringify( RoomService.playersData, null, 2 ));
       console.log( JSON.stringify( RoomService.playersData.length, null, 2 ));
 

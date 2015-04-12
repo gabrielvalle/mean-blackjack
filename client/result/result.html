@@ -18,7 +18,14 @@
     <span ng-bind="result.player"></span>
     <span ng-bind="result.result"></span>
     $<span ng-bind="result.prize"></span>
+    <div>
+      <span class="micro-cards"
+            ng-repeat="card in vm.playersData[ $index ].hand">
+        {{ card.name }}{{ card.suit }}
+      </span>
+    </div>
   </div>
+
 
   <!-- Play again button -->
   <button ng-click="vm.playAgain()">

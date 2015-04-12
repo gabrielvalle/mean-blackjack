@@ -120,6 +120,8 @@
 
           player.hand  = [];
           player.wager = 0;
+          player.stand = false;
+          player.score = 0;
 
           RoomService.playersData[ player.id - 1 ] = player;
 
