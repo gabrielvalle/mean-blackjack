@@ -1,0 +1,24 @@
+{
+  "name": "mean-blackjack",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ericdouglas/mean-blackjack",
+  "authors": [
+    "ericdouglas <eric.douglas.mail@gmail.com>"
+  ],
+  "description": "MEAN Blackjack app",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.3.15",
+    "angular-toastr": "~1.2.1",
+    "angular": "~1.3.15",
+    "ui-router": "~0.2.13"
+  }
+}

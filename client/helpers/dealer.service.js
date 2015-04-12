@@ -93,7 +93,7 @@
             });
         
         });
-    
+
       return self.deck;
 
     }
@@ -122,14 +122,16 @@
 
   function distributeCards( playersArray ) {
   
+    console.log( playersArray, self.deck );
+
     playersArray
       .push( self.dealerData );
 
     playersArray
       .forEach( function( player ) {
       
-        self.giveCard( player );
-        self.giveCard( player );
+        self.giveCard( self.deck.length, player );
+        self.giveCard( self.deck.length, player );
       
       });
 
