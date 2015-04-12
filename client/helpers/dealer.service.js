@@ -260,7 +260,6 @@
 
     function resetValues() {
 
-      DealerService.dealerData     = { hand : [], score : 0 };
       DealerService.readyToGo      = false;
       DealerService.currentGambler = 0;
       DealerService.currentPlayer  = 0;

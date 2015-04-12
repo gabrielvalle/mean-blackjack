@@ -48,6 +48,8 @@
         vm.playersData  = DealerService.distributeCards( players );
       }
 
+      vm.dealerData = { hand : [], score : 0, stand : false };
+
       while ( vm.dealerData.score < 17 ) {
         playerAction( vm.dealerData, 'hit' );
       }

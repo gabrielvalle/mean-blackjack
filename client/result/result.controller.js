@@ -34,6 +34,7 @@
     ///////////// Methods Declarations
     function _init() {
 
+      console.log( JSON.stringify( vm.dealerData, null, 2 ));
       vm.allResults = _calculateResults( vm.playersData, vm.dealerData );
 
     }
@@ -76,6 +77,13 @@
               .push( new Result( player, 'Won / Blackjack', player.wager * 2.5 ));
 
             _payThePlayer( player, player.wager * 2.5 );
+
+          } else if ( player.score <= 21 && dealer.score > 21 ) {
+
+            results
+              .push( new Result( player, 'Won', player.wager * 2 ));
+
+            _payThePlayer( player, player.wager * 2 );
 
           } else if ( player.score <= 21 && player.score < dealer.score ) {
 
@@ -138,7 +146,6 @@
     function quit() {
 
       _resetValues();      
-      vm.dealerData               = { hand : [], score : 0 };
       RoomService.playersData     = [];
       RoomService.numberOfPlayers = 1;
 
