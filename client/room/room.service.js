@@ -18,7 +18,7 @@
     self.currentPlayer   = 1;
 
     ///////////// Methods
-    self.createPlayers = createPlayers;
+    self.createPlayers   = createPlayers;
 
     ///////////// Methods Declaration
     function Player( number ) {
@@ -27,6 +27,7 @@
       this.hand  = [];
       this.wager = 0;
       this.money = 1000;
+      this.stand = false;
       this.id    = number;
 
     }

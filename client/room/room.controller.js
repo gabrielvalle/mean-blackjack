@@ -21,18 +21,18 @@
     vm.totalPlayers   = RoomService.numberOfPlayers;
     vm.playersData    = [];
     vm.dealerData     = DealerService.dealerData;
-    vm.message        = DealerService.message;
     vm.currentGambler = {};
     vm.currentPlayer  = {};
     vm.readyToGo      = DealerService.readyToGo;
     vm.deck           = [];
 
     ///////////// Public Methods
-    vm.quit     = quit;
-    vm.setWager = setWager;
+    vm.quit           = quit;
+    vm.setWager       = setWager;
+    vm.playerAction   = playerAction;
 
     ///////////// Private Methods
-    var _init = _init;
+    var _init         = _init;
 
     ///////////// Methods Declaration
     function _init() {
@@ -41,8 +41,6 @@
       vm.playersData    = DealerService.distributeCards( players );
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
 
-      console.log( JSON.stringify( vm.playersData, null, 2 ));
-
     }
 
     function quit() {
@@ -50,6 +48,7 @@
       RoomService.numberOfPlayers  = 1;
       DealerService.currentGambler = 0;
       vm.currentGambler            = {};
+      vm.currentPlayer             = {};
       vm.readyToGo                 = false;
       vm.wager                     = '';
 
@@ -80,19 +79,24 @@
         if ( id < vm.playersData.length ) {
           
           vm.currentGambler = vm.playersData[ id ];
-          //console.log( JSON.stringify( vm.currentGambler, null, 2 ));
 
         } else {
           
           DealerService.currentGambler = 0;
-          vm.currentGambler = {};
-          vm.readyToGo = true;
+          vm.currentGambler            = {};
+          vm.readyToGo                 = true;
+
+          vm.currentPlayer = vm.playersData[ 0 ];
 
         }
       }
 
       vm.wager = '';
     
+    }
+
+    function playerAction( player, action ) {
+      DealerService.dealerAI( player, action );
     }
 
     ///////////// Start

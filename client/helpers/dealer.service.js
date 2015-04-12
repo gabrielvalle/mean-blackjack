@@ -15,17 +15,22 @@
     var self = this;
 
     ///////////// Properties
-    self.message         = 'Your turn!';
     self.currentGambler  = 0;
     self.currentPlayer   = 0;
     self.readyToGo       = false;
     self.deck            = [];
     self.dealerData      = { hand : [] };
 
-    ///////////// Methods
+    ///////////// Public Methods
     self.createDeck      = createDeck;
     self.giveCard        = giveCard;
     self.distributeCards = distributeCards;
+    self.dealerAI        = dealerAI;
+
+    ///////////// Private Methods
+    var _handleHit       = _handleHit;
+    var _handleStand     = _handleStand;
+    var _handleBust      = _handleBust;
 
     ///////////// Functions Declaration
     function createDeck() {
@@ -109,23 +114,32 @@
     }
 
     /*
+    *
     * Return a random number between min and max
     *
     * @param {number} min - inclusive
     * @param {number} max - exclusive
+    *
     */
     function _randomNumberGenerator( min, max ) {  
       return Math.floor( Math.random() * ( max - min )) + min;  
     }
 
-    function distributeCards( playersArray ) {
+    /*
+    *
+    *  Give 2 card per player
+    *
+    * @param {Array} players
+    *
+    */
+    function distributeCards( players ) {
 
       self.createDeck();
 
-      playersArray
+      players
         .push( self.dealerData );
 
-      playersArray
+      players
         .forEach( function( player ) {
         
           self.giveCard( self.deck.length, player );
@@ -133,10 +147,30 @@
         
         });
 
-      self.dealerData = playersArray.splice( playersArray.length - 1, 1 )[ 0 ];
+      self.dealerData = players.splice( players.length - 1, 1 )[ 0 ];
       
-      return playersArray;
+      return players;
     
+    }
+
+    /**
+    *
+    * Management of the game
+    *
+    * @param {Object} player
+    * @param {String} action - "hit" or "stand"
+    *
+    **/
+    function dealerAI( player, action ) {
+
+      if ( action === "hit" ) {
+
+      } else {
+
+      }
+
+
+
     }
   
   }

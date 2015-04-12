@@ -16,10 +16,6 @@
 
 <div ng-show="vm.readyToGo">
   <section>
-    <!-- Message Box-->
-    <div class="msg-box" ng-bind="vm.message">
-    </div>
-
     <!-- Actual Player Box -->
     <div class="actual-player">
       <span class="actual-player name"
@@ -41,8 +37,12 @@
         </span>
       </div>
       <div>
-        <button>Hit</button>
-        <button>Stand</button>
+        <button ng-click="vm.playerAction( vm.currentPlayer, 'hit' )">
+          Hit
+        </button>
+        <button ng-click="vm.playerAction( vm.currentPlayer, 'stand' )">
+          Stand
+        </button>
       </div>
     </div>
   </section>

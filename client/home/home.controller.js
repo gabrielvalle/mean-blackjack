@@ -17,18 +17,20 @@
     var vm = this;
 
     ///////////// Properties
-    vm.totalPlayers = RoomService.numberOfPlayers;
+    vm.totalPlayers    = RoomService.numberOfPlayers;
 
     ///////////// Public Methods
     vm.addRemovePlayer = addRemovePlayer;
     vm.goToRoom        = goToRoom;
 
     ///////////// Private Methods
-    var _init = _init;
+    var _init          = _init;
 
     ///////////// Methods Declarations
     /*
+    *
     * @param {number} value
+    *
     */
     function addRemovePlayer( value ) {
 
