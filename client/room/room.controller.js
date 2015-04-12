@@ -53,8 +53,11 @@
       while ( vm.dealerData.score < 17 ) {
         playerAction( vm.dealerData, 'hit' );
       }
-      
-      vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
+
+      console.log( DealerService.currentGambler );
+
+      DealerService.dealerData = vm.dealerData;      
+      vm.currentGambler        = vm.playersData[ DealerService.currentGambler ];
 
     }
 
@@ -124,17 +127,16 @@
 
     ///////////// $broadcast events
     $scope
-      .$on( 'next-player', function() {
+      .$on( 'next-player', function( evt, player ) {
 
         DealerService.currentPlayer += 1;
 
-        if ( DealerService.currentPlayer < vm.playersData.length ) {
-          vm.currentPlayer = vm.playersData[ DealerService.currentPlayer ];
-        } else {
+        console.log( 'next-player', DealerService.currentPlayer );
+        console.log( 'id', player.id );
 
-          // while ( vm.dealerData.score < 17 ) {
-          //   playerAction( vm.dealerData, 'hit' );
-          // }
+        if ( player.id < vm.playersData.length ) {
+          vm.currentPlayer = vm.playersData[ player.id ];
+        } else {
 
           RoomService.playersData  = vm.playersData;
 

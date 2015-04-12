@@ -240,8 +240,8 @@
             .playersData[ player.id - 1 ] = player;
 
           $rootScope
-            .$broadcast( 'next-player' );
-            
+            .$broadcast( 'next-player', player );
+
         }
 
       }
@@ -256,7 +256,7 @@
         .playersData[ player.id - 1 ] = player;
 
       $rootScope
-        .$broadcast( 'next-player' );
+        .$broadcast( 'next-player', player );
 
     }
 
