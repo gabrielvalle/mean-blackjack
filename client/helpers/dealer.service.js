@@ -19,7 +19,7 @@
     self.currentPlayer   = 0;
     self.readyToGo       = false;
     self.deck            = [];
-    self.dealerData      = { hand : [] };
+    self.dealerData      = { name: 'Dealer', hand : [] };
 
     ///////////// Public Methods
     self.createDeck      = createDeck;
@@ -31,6 +31,7 @@
     var _handleHit       = _handleHit;
     var _handleStand     = _handleStand;
     var _handleBust      = _handleBust;
+    var _calculateScore  = _calculateScore;
 
     ///////////// Functions Declaration
     function createDeck() {
@@ -62,39 +63,14 @@
         
           typeOfSuits
             .forEach( function( suit ) {
-           
-              if ( card === 'A' ) {
-              
-                self
-                  .deck
-                  .push({
-                    name  : card,
-                    suit  : suit,
-                    value : [ 1, 11 ]
-                  });
 
-              } else if ( card === 'J' || card === 'Q' || card === 'K' ) {
-              
-                self
-                  .deck
-                  .push({
-                    name  : card,
-                    suit  : suit,
-                    value : [ 10 ]
-                  });
-              
-              } else {
-              
-                self
-                  .deck
-                  .push({
-                    name  : card,
-                    suit  : suit,
-                    value : [ Number( card, 10 ) ]
-                  });
-              
-              }
-            
+              self
+                .deck
+                .push({
+                  name  : card,
+                  suit  : suit
+                });
+           
             });
         
         });
@@ -163,13 +139,39 @@
     **/
     function dealerAI( player, action ) {
 
-      if ( action === "hit" ) {
-
-      } else {
-
+      if ( action === 'hit' && !player.stand ) {
+        _handleHit( player );
+      } else if ( action === 'stand' ) {
+        _handleStand( player );
       }
 
+    }
 
+    /**
+    *
+    * Calculate the total score of the player's hand
+    *
+    * @param {Array} hand - Array with card objects
+    *
+    **/    
+    function _calculateScore( hand ) {
+
+      // hand
+      //   .forEach( function( card ) {
+
+      //     if ( card.name === 'A' ) {
+
+
+
+      //     }
+
+      //   });
+
+    }
+
+    function _handleHit( player ) {
+
+      if ( !player.stand ) {}
 
     }
   
