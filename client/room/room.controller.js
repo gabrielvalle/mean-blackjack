@@ -20,7 +20,7 @@
     ///////////// Properties
     vm.totalPlayers   = RoomService.numberOfPlayers;
     vm.playersData    = [];
-    vm.dealerData     = { hand : [] };
+    vm.dealerData     = DealerService.dealerData;
     vm.message        = DealerService.message;
     vm.currentGambler = {};
     vm.currentPlayer  = {};

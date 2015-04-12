@@ -15,15 +15,17 @@
     var self = this;
 
     ///////////// Properties
-    self.message        = 'Your turn!';
-    self.currentGambler = 0;
-    self.currentPlayer  = 0;
-    self.readyToGo      = false;
-    self.deck           = [];
+    self.message         = 'Your turn!';
+    self.currentGambler  = 0;
+    self.currentPlayer   = 0;
+    self.readyToGo       = false;
+    self.deck            = [];
+    self.dealerData      = { hand : [] };
 
     ///////////// Methods
-    self.createDeck     = createDeck;
-    self.giveCard       = giveCard;
+    self.createDeck      = createDeck;
+    self.giveCard        = giveCard;
+    self.distributeCards = distributeCards;
 
     ///////////// Functions Declaration
     function createDeck() {
@@ -115,6 +117,25 @@
     function _randomNumberGenerator( min, max ) {  
       return Math.floor( Math.random() * ( max - min )) + min;  
     }
+  
+  }
+
+  function distributeCards( playersArray ) {
+  
+    playersArray
+      .push( self.dealerData );
+
+    playersArray
+      .forEach( function( player ) {
+      
+        self.giveCard( player );
+        self.giveCard( player );
+      
+      });
+
+    self.dealerData = playersArray.splice( playersArray.length - 1, 1 );
+    
+    return playersArray;
   
   }
 
