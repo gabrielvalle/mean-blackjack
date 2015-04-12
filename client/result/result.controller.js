@@ -34,7 +34,6 @@
     ///////////// Methods Declarations
     function _init() {
 
-      console.log( JSON.stringify( vm.dealerData, null, 2 ));
       vm.allResults = _calculateResults( vm.playersData, vm.dealerData );
 
     }
