@@ -66,7 +66,7 @@
             results
               .push( new Result( player, 'Burst' ));
 
-          } else if ( player.score === 21 && player.hands.length === 2 ) {
+          } else if ( player.score === 21 && player.hand.length === 2 ) {
 
             results
               .push( new Result( player, 'Won / Blackjack' ));
