@@ -32,12 +32,11 @@
 
     ///////////// Private Methods
     var _init = _init;
-    var _createPlayers = RoomService.createPlayers;
 
     ///////////// Methods Declaration
     function _init() {
 
-      vm.playersData = _createPlayers( vm.totalPlayers );
+      vm.playersData = RoomService.playersData;
       //console.log( JSON.stringify( vm.playersData, null, 2 ));
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
 
@@ -72,18 +71,18 @@
         if ( id < vm.playersData.length ) {
           
           vm.currentGambler = vm.playersData[ id ];
-          console.log( JSON.stringify( vm.currentGambler, null, 2 ));
+          //console.log( JSON.stringify( vm.currentGambler, null, 2 ));
 
         } else {
           
-          DealerService.currentGambler = 0;
+          DealerService.currentGambler = '';
           vm.currentGambler = {};
           vm.readyToGo = true;
 
         }
       }
 
-      vm.wager = 0;
+      vm.wager = '';
     
     }
 

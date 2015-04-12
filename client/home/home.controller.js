@@ -49,6 +49,8 @@
     function goToRoom() {
       
       RoomService.numberOfPlayers = vm.totalPlayers;
+      RoomService.createPlayers( vm.totalPlayers );
+
       $state
         .go( 'room' );
 
