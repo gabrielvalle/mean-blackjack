@@ -43,18 +43,14 @@
       if ( RoomService.playersData.length === 0 ) {
         players         = RoomService.createPlayers( RoomService.numberOfPlayers );
         vm.playersData  = DealerService.distributeCards( players );
-        console.log( 'new players' );
       } else {
         players         = RoomService.playersData;
         vm.playersData  = DealerService.distributeCards( players );
-        console.log( 'old players' );
       }
 
       while ( vm.dealerData.score < 17 ) {
         playerAction( vm.dealerData, 'hit' );
       }
-
-      console.log( DealerService.currentGambler );
 
       DealerService.dealerData = vm.dealerData;      
       vm.currentGambler        = vm.playersData[ DealerService.currentGambler ];
@@ -130,9 +126,6 @@
       .$on( 'next-player', function( evt, player ) {
 
         DealerService.currentPlayer += 1;
-
-        console.log( 'next-player', DealerService.currentPlayer );
-        console.log( 'id', player.id );
 
         if ( player.id < vm.playersData.length ) {
           vm.currentPlayer = vm.playersData[ player.id ];

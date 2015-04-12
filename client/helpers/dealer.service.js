@@ -207,11 +207,9 @@
           finish = true;
         } else if ( bonusA > 0 && score <= 21 ) {
           finish = true;
-          console.log('bonusA intact');
         } else if ( bonusA > 0 && score > 21 ) {
           score  -= 10;
           bonusA -= 10;
-          console.log('bonusA modified');
         }
         
       }
