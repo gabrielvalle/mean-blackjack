@@ -29,6 +29,7 @@
     var _init             = _init;
     var _calculateResults = _calculateResults;
     var _payThePlayer     = _payThePlayer;
+    var _resetValues      = DealerService.resetValues;
 
     ///////////// Methods Declarations
     function _init() {
@@ -127,10 +128,7 @@
 
         });
 
-      DealerService.dealerData    = { hand : [], score : 0 };
-      DealerService.readyToGo     = false;
-      DealerService.currentGamler = 0;
-      DealerService.currentPlayer = 0;
+      _resetValues();
 
       $state
         .go( 'room' );
@@ -139,7 +137,13 @@
 
     function quit() {
 
+      _resetValues();      
+      vm.dealerData               = { hand : [], score : 0 };
+      RoomService.playersData     = [];
+      RoomService.numberOfPlayers = 1;
 
+      $state
+        .go( 'home' );
 
     }
 

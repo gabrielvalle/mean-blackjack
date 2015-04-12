@@ -17,7 +17,7 @@
   function RoomController( RoomService, DealerService, $state, toastr, $scope ) {
 
     var vm = this;
-  
+
     ///////////// Properties
     vm.totalPlayers   = RoomService.numberOfPlayers;
     vm.playersData    = [];
@@ -38,16 +38,20 @@
     ///////////// Methods Declaration
     function _init() {
 
-      console.log( JSON.stringify( vm.currentPlayer, null, 2 ));
-      console.log( JSON.stringify( RoomService.playersData, null, 2 ));
-      console.log( JSON.stringify( RoomService.playersData.length, null, 2 ));
+      var players = [];
 
       if ( RoomService.playersData.length === 0 ) {
-        var players     = RoomService.createPlayers( RoomService.numberOfPlayers );
+        players         = RoomService.createPlayers( RoomService.numberOfPlayers );
         vm.playersData  = DealerService.distributeCards( players );
+        console.log( 'new players' );
       } else {
-        var players     = RoomService.playersData;
+        players         = RoomService.playersData;
         vm.playersData  = DealerService.distributeCards( players );
+        console.log( 'old players' );
+      }
+
+      while ( vm.dealerData.score < 17 ) {
+        playerAction( vm.dealerData, 'hit' );
       }
       
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
@@ -57,6 +61,7 @@
     function quit() {
 
       RoomService.numberOfPlayers  = 1;
+      RoomService.playersData      = [];
       DealerService.currentGambler = 0;
       vm.currentGambler            = {};
       vm.currentPlayer             = {};
@@ -70,6 +75,14 @@
     function setWager( id, wager ) {
       
       var player = vm.playersData[ id - 1 ];
+
+      if ( player.money <= 0 ) {
+
+        player.money = 1000;
+        toastr
+          .info( player.name + ' received $1000 in credit', 'Dealer says:' );
+
+      }
 
       if ( !wager ) {
         toastr
@@ -119,14 +132,11 @@
           vm.currentPlayer = vm.playersData[ DealerService.currentPlayer ];
         } else {
 
-          while ( vm.dealerData.score < 17 ) {
-            playerAction( vm.dealerData, 'hit' );
-          }
+          // while ( vm.dealerData.score < 17 ) {
+          //   playerAction( vm.dealerData, 'hit' );
+          // }
 
           RoomService.playersData  = vm.playersData;
-
-          // console.log( JSON.stringify( RoomService.playersData, null, 2 ));
-          // console.log( JSON.stringify( DealerService.dealerData, null, 2 ));
 
           $state
             .go( 'result' );

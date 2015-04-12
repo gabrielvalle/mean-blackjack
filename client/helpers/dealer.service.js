@@ -20,13 +20,14 @@
     self.currentPlayer   = 0;
     self.readyToGo       = false;
     self.deck            = [];
-    self.dealerData      = { hand : [], score : 0 };
+    self.dealerData      = { hand : [], score : 0, stand : false };
 
     ///////////// Public Methods
     self.createDeck      = createDeck;
     self.giveCard        = giveCard;
     self.distributeCards = distributeCards;
     self.dealerAI        = dealerAI;
+    self.resetValues     = resetValues;
 
     ///////////// Private Methods
     var _handleHit       = _handleHit;
@@ -36,6 +37,8 @@
 
     ///////////// Functions Declaration
     function createDeck() {
+
+      self.deck = [];
     
       var typeOfCards = [ 
         'A',
@@ -87,6 +90,10 @@
       player
         .hand
         .push( self.deck.splice( random, 1 )[ 0 ]);
+
+      if ( player.id ) {
+        RoomService.playersData[ player.id - 1 ] = player;
+      }
     
     }
 
@@ -115,7 +122,11 @@
         .createDeck();
 
       players
-        .push( self.dealerData );
+        .push({ 
+          hand  : [], 
+          score : 0,
+          stand : false
+        });
 
       players
         .forEach( function( player ) {
@@ -130,7 +141,7 @@
         });
 
       self.dealerData = players.splice( players.length - 1, 1 )[ 0 ];
-      
+
       return players;
     
     }
@@ -171,7 +182,7 @@
 
           if ( card.name === 'A' ) {
 
-            if ( score += 11 > 21 ) {
+            if ( score >= 11 ) {
               score += 1;
             } else {
               score  += 11;
@@ -196,9 +207,11 @@
           finish = true;
         } else if ( bonusA > 0 && score <= 21 ) {
           finish = true;
+          console.log('bonusA intact');
         } else if ( bonusA > 0 && score > 21 ) {
           score  -= 10;
           bonusA -= 10;
+          console.log('bonusA modified');
         }
         
       }
@@ -244,6 +257,15 @@
 
       $rootScope
         .$broadcast( 'next-player' );
+
+    }
+
+    function resetValues() {
+
+      DealerService.dealerData     = { hand : [], score : 0 };
+      DealerService.readyToGo      = false;
+      DealerService.currentGambler = 0;
+      DealerService.currentPlayer  = 0;
 
     }
   
