@@ -108,7 +108,7 @@
 
     function _payThePlayer( player, amount ) {
 
-      player.money += amount;
+      player.money += Number( amount, 10 );
       vm.playersData[ player.id - 1 ] = player;
 
     }
