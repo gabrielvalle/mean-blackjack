@@ -23,6 +23,7 @@
 
     ///////////// Methods
     self.createDeck     = createDeck;
+    self.giveCard       = giveCard;
 
     ///////////// Functions Declaration
     function createDeck() {
@@ -93,6 +94,26 @@
     
       return self.deck;
 
+    }
+
+    function giveCard( deckLength, player ) {
+
+      var random = _randomNumberGenerator( 0, deckLength );
+    
+      player
+        .hand
+        .push( vm.deck.splice( random, 1 ));
+    
+    }
+
+    /*
+    * Return a random number between min and max
+    *
+    * @param {number} min - inclusive
+    * @param {number} max - exclusive
+    */
+    function _randomNumberGenerator( min, max ) {  
+      return Math.floor( Math.random() * ( max - min )) + min;  
     }
   
   }
