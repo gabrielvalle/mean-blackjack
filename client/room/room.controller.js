@@ -37,7 +37,8 @@
     ///////////// Methods Declaration
     function _init() {
 
-      vm.playersData = DealerService.distributeCards( RoomService.createPlayers( RoomService.numberOfPlayers ));
+      var players       = RoomService.createPlayers( RoomService.numberOfPlayers );
+      vm.playersData    = DealerService.distributeCards( players );
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
 
     }
