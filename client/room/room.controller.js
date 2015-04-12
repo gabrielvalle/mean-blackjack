@@ -108,8 +108,13 @@
         if ( DealerService.currentPlayer < vm.playersData.length ) {
           vm.currentPlayer = vm.playersData[ DealerService.currentPlayer ];
         } else {
-          console.log( 'Pay the players' );
-          console.log( vm.dealerData );
+
+          while ( vm.dealerData.score < 17 ) {
+            playerAction( vm.dealerData, 'hit' );
+          }
+
+          $state
+            .go( 'result' );
         }
 
       });

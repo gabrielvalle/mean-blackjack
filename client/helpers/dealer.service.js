@@ -20,7 +20,7 @@
     self.currentPlayer   = 0;
     self.readyToGo       = false;
     self.deck            = [];
-    self.dealerData      = { name: 'Dealer', hand : [] };
+    self.dealerData      = { hand : [], score : 0 };
 
     ///////////// Public Methods
     self.createDeck      = createDeck;
@@ -146,7 +146,6 @@
     function dealerAI( player, action ) {
 
       if ( action === 'hit' && !player.stand && player.score < 21 ) {
-        console.log( JSON.stringify( player ));
         _handleHit( player );
       } else if ( action === 'stand' || player.score === 21 ) {
         _handleStand( player );
