@@ -25,6 +25,7 @@
     vm.currentGambler = {};
     vm.currentPlayer  = {};
     vm.readyToGo      = DealerService.readyToGo;
+    vm.deck           = [];
 
     ///////////// Public Methods
     vm.quit     = quit;
@@ -36,9 +37,9 @@
     ///////////// Methods Declaration
     function _init() {
 
-      vm.playersData = RoomService.playersData;
-      //console.log( JSON.stringify( vm.playersData, null, 2 ));
+      vm.playersData    = RoomService.playersData;
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
+      vm.deck           = DealerService.createDeck();
 
     }
 
