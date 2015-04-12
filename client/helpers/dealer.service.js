@@ -145,10 +145,10 @@
     **/
     function dealerAI( player, action ) {
 
-      if ( action === 'hit' && !player.stand ) {
+      if ( action === 'hit' && !player.stand && player.score < 21 ) {
         console.log( JSON.stringify( player ));
         _handleHit( player );
-      } else if ( action === 'stand' ) {
+      } else if ( action === 'stand' || player.score === 21 ) {
         _handleStand( player );
       }
 
@@ -163,7 +163,9 @@
     **/    
     function _calculateScore( hand ) {
 
-      var score = 0;
+      var score  = 0;
+      var bonusA = 0;
+      var finish = false;
 
       hand
         .forEach( function( card ) {
@@ -173,7 +175,8 @@
             if ( score += 11 > 21 ) {
               score += 1;
             } else {
-              score += 11;
+              score  += 11;
+              bonusA += 10;
             }
 
           } else if ( card.name === 'J' || card.name === 'Q' || card.name === 'K' ) {
@@ -187,6 +190,19 @@
           }
 
         });
+
+      while ( !finish ) {
+
+        if ( bonusA <= 0 ) {
+          finish = true;
+        } else if ( bonusA > 0 && score <= 21 ) {
+          finish = true;
+        } else if ( bonusA > 0 && score > 21 ) {
+          score  -= 10;
+          bonusA -= 10;
+        }
+        
+      }
 
       return score;
 
