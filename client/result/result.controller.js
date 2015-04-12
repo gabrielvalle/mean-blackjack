@@ -8,19 +8,22 @@
 
   ResultController.$inject = [
     'DealerService',
-    'RoomService'
+    'RoomService',
+    '$state'
   ];
 
-  function ResultController( DealerService, RoomService ) {
+  function ResultController( DealerService, RoomService, $state ) {
 
     var vm = this;
 
     ///////////// Properties
-    vm.dealerData  = DealerService.dealerData;
-    vm.playersData = RoomService.playersData;
-    vm.allResults  = [];
+    vm.dealerData         = DealerService.dealerData;
+    vm.playersData        = RoomService.playersData;
+    vm.allResults         = [];
 
     ///////////// Public Methods
+    vm.playAgain          = playAgain;
+    vm.quit               = quit;
 
     ///////////// Private Methods
     var _init             = _init;
@@ -31,7 +34,6 @@
     function _init() {
 
       vm.allResults = _calculateResults( vm.playersData, vm.dealerData );
-      console.log( JSON.stringify( vm.allResults, null, 2 ));
 
     }
 
@@ -107,6 +109,35 @@
 
       player.money += amount;
       vm.playersData[ player.id - 1 ] = player;
+
+    }
+
+    function playAgain() {
+
+      RoomService
+        .playersData
+        .forEach( function( player ) {
+
+          player.hand  = [];
+          player.wager = 0;
+
+          RoomService.playersData[ player.id - 1 ] = player;
+
+        });
+
+      DealerService.dealerData    = { hand : [], score : 0 };
+      DealerService.readyToGo     = false;
+      DealerService.currentGamler = 0;
+      DealerService.currentPlayer = 0;
+
+      $state
+        .go( 'room' );
+
+    }
+
+    function quit() {
+
+
 
     }
 

@@ -38,8 +38,17 @@
     ///////////// Methods Declaration
     function _init() {
 
-      var players       = RoomService.createPlayers( RoomService.numberOfPlayers );
-      vm.playersData    = DealerService.distributeCards( players );
+      console.log( JSON.stringify( RoomService.playersData, null, 2 ));
+      console.log( JSON.stringify( RoomService.playersData.length, null, 2 ));
+
+      if ( RoomService.playersData.length === 0 ) {
+        var players     = RoomService.createPlayers( RoomService.numberOfPlayers );
+        vm.playersData  = DealerService.distributeCards( players );
+      } else {
+        var players     = RoomService.playersData;
+        vm.playersData  = DealerService.distributeCards( players );
+      }
+      
       vm.currentGambler = vm.playersData[ DealerService.currentGambler ];
 
     }
