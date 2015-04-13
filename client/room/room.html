@@ -1,16 +1,39 @@
-<div ng-hide="vm.readyToGo">
-  <h2>Set your wager</h2>
+<div ng-hide="vm.readyToGo"
+     class="container">
+  <div>
+    <h2>Set your wager</h2>
+  </div>
   
   <!-- wager box -->
-  <div class="wager-box">
-    <div class="wager-title">
-      {{ vm.currentGambler.name }} | Total money: $ {{ vm.currentGambler.money - vm.wager }}
+  <div class="list-group col-xs-4">
+    <div class="list-group-item active">
+      <h3 class="list-group-item-heading">
+        {{ vm.currentGambler.name }}
+      </h3>
+      <h3 class="list-group-item-text">
+        Total money: 
+        <span class="label label-default">
+          ${{ vm.currentGambler.money - vm.wager }}
+        </span>
+      </h3>
     </div>
-    <p>
-      <input type="text"
-             ng-model="vm.wager">
-      <button ng-click="vm.setWager( vm.currentGambler.id, vm.wager )">Ok</button>
-    </p>
+    <div class="list-group-item">
+      <div class="input-group">
+        <span class="input-group-addon"
+              id="sizing-addon1">
+          $
+        </span>
+        <input type="text"
+               class="form-control"
+               ng-model="vm.wager">
+      </div>
+    </div>
+    <div class="list-group-item">
+      <button ng-click="vm.setWager( vm.currentGambler.id, vm.wager )"
+                class="btn btn-success btn-lg">
+        Ok
+      </button>
+    </div>
   </div>
 </div>
 
