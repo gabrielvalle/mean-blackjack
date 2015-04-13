@@ -9,10 +9,11 @@
   ResultController.$inject = [
     'DealerService',
     'RoomService',
-    '$state'
+    '$state',
+    'ResultService'
   ];
 
-  function ResultController( DealerService, RoomService, $state ) {
+  function ResultController( DealerService, RoomService, $state, ResultService ) {
 
     var vm = this;
 
@@ -30,6 +31,7 @@
     var _calculateResults = _calculateResults;
     var _payThePlayer     = _payThePlayer;
     var _resetValues      = DealerService.resetValues;
+    var _createLog        = _createLog;
 
     ///////////// Methods Declarations
     function _init() {
@@ -136,6 +138,7 @@
         });
 
       _resetValues();
+      _createLog( vm.allResults );
 
       $state
         .go( 'room' );
@@ -144,12 +147,25 @@
 
     function quit() {
 
-      _resetValues();      
       RoomService.playersData     = [];
       RoomService.numberOfPlayers = 1;
+      _resetValues();
+      _createLog( vm.allResults ); 
 
       $state
         .go( 'home' );
+
+    }
+
+    function _createLog( results ) {
+
+      results
+        .forEach( function( log ) {
+
+          ResultService
+            .createLog( log );
+
+        });
 
     }
 
