@@ -1,41 +1,58 @@
-<div>
-  
-  <!-- Dealer cards -->
-  <div>
-    <h2>Dealer's Cards</h2>
-    <span class="macro-cards"
-         ng-repeat="card in vm.dealerData.hand">
-      {{ card.name }}{{ card.suit }}
-    </span>
-    <div>
-      Score: {{ vm.dealerData.score }}
+<div class="container">
+
+  <h2>Results</h2>
+
+  <div class="list-group col-xs-6">  
+    <!-- Dealer cards -->
+    <div class="list-group-item active">
+      <h3>Dealer's Cards</h3>
+      <h3>
+        <span class="btn btn-primary btn-lg"
+              ng-repeat="card in vm.dealerData.hand">
+          {{ card.name }} {{ card.suit }}
+        </span> &nbsp;
+      </h3>
+      <div>
+        <h3>
+          Score: 
+          <span class="label label-danger">
+            {{ vm.dealerData.score }}
+          </span>
+        </h3>
+      </div>
     </div>
+
+    <!-- All players results -->
+    <div class="list-group-item"
+         ng-repeat="result in vm.allResults">
+      <h3>
+        <span ng-bind="result.player"></span>
+        <span ng-bind="result.result" class="label label-primary"></span>
+        $<span ng-bind="result.prize"></span>
+      </h3>
+      <h3>
+        <span class="btn btn-primary"
+              ng-repeat="card in vm.playersData[ $index ].hand">
+          {{ card.name }} {{ card.suit }}
+        </span>
+        <span>Score: {{ result.score }}</span>
+      </h3>
+    </div>
+
+    <!-- Play again button -->
+    <button ng-click="vm.playAgain()"
+            class="btn btn-info btn-lg">
+      Play Again
+    </button>
+
+    <!-- Quit button -->
+    <button ng-click="vm.quit()"
+            class="btn btn-danger btn-lg">
+      Quit
+    </button>
   </div>
 
-  <!-- All players results -->
-  <div class="players-result"
-       ng-repeat="result in vm.allResults">
-    <span ng-bind="result.player"></span>
-    <span ng-bind="result.result"></span>
-    $<span ng-bind="result.prize"></span>
-    <div>
-      <span class="micro-cards"
-            ng-repeat="card in vm.playersData[ $index ].hand">
-        {{ card.name }}{{ card.suit }}
-      </span>
-      <span> | Score: {{ result.score }}</span>
-    </div>
-  </div>
 
 
-  <!-- Play again button -->
-  <button ng-click="vm.playAgain()">
-    Play Again
-  </button>
-
-  <!-- Quit button -->
-  <button ng-click="vm.quit()">
-    Quit
-  </button>
 
 </div>
