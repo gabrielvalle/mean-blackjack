@@ -1,6 +1,6 @@
 # mean-blackjack
 
-## Install
+## How to Install & Run
 
 1. Clone the project `git clone git@github.com:ericdouglas/mean-blackjack.git`
 1. Go to the root folder `cd mean-blackjack`
