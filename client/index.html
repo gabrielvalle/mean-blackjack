@@ -4,18 +4,32 @@
   <meta charset="UTF-8">
   <title>MEAN Blackjack</title>
 
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
   <link rel="stylesheet" href="public/vendor/angular-toastr/dist/angular-toastr.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
 
   <header>
-    <h1>MEAN Blackjack</h1>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>♠ MEAN Blackjack ♠</h1>
+      </div>
+    </div>
   </header>
 
   <div ui-view></div>
 
   <footer>
-    Made with ❤ by <a href="https://github.com/ericdouglas">Eric Douglas</a>
+    <div class="container">
+      <hr>
+      <p>
+        Made with ❤ by <a href="https://github.com/ericdouglas">Eric Douglas</a>
+      </p>
+    </div>
   </footer>
   
   <!-- Angular Vendor Scripts -->
