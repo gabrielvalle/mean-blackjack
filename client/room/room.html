@@ -42,7 +42,7 @@
   <div class="row">
     <section class="col-md-6">
       <!-- Actual Player Box -->
-      <div class="list-group col-xs-4">
+      <div class="list-group col-xs-6">
         <h3 class="list-group-item active"
               ng-bind="vm.currentPlayer.name">
         </h3>
@@ -75,48 +75,50 @@
     </section>
     
     <aside class="col-md-6">
-      <!-- Dealer -->
-      <div class="standby-player-box">
-        <span>Dealer</span>
-        <div class="standby-player-info">
+      <div class="list-group col-xs-6">
+        <!-- Dealer -->
+        <div class="list-group-item active">
+          <h4>Dealer</h4>
           <div>
-            <span class="micro-cards">
-              {{ vm.dealerData.hand[ 0 ].name }}{{ vm.dealerData.hand[ 0 ].suit }}
-            </span>
-            <span class="micro-cards">
-              ☒
-            </span>
+            <h3>
+              <span class="label label-primary">
+                {{ vm.dealerData.hand[ 0 ].name }} {{ vm.dealerData.hand[ 0 ].suit }}
+              </span> &nbsp;
+              <span class="label label-danger">
+                ✖
+              </span>
+            </h3>
           </div>
         </div>
-      </div>
-      <!-- All Players -->
-      <div class="standby-player-box"
-           ng-repeat="player in vm.playersData">
-        <span ng-bind="player.name"></span>
-        <span> | Score: {{ player.score }}</span>
-        <div class="standby-player-info">
-          <div>
-            <span class="micro-cards"
-                  ng-repeat="card in player.hand">
-              {{ card.name }}{{ card.suit }}
-            </span>
-          </div>
-          <div>
-            <strong>$</strong>
-            <span ng-bind="player.wager">
-            </span>
-             /
-            <strong> $</strong>
-            <span ng-bind="player.money">
-            </span>
+        <!-- All Players -->
+        <div class="list-group-item"
+             ng-repeat="player in vm.playersData">
+          <h4 ng-bind="player.name"></h4>
+          <span>Score: {{ player.score }}</span>
+          <div class="standby-player-info">
+            <h3>
+              <div class="label label-primary"
+                    ng-repeat="card in player.hand">
+                {{ card.name }} {{ card.suit }}
+              </div>
+            </h3>
+            <div>
+              <strong>$</strong>
+              <span ng-bind="player.wager">
+              </span>
+               /
+              <strong> $</strong>
+              <span ng-bind="player.money">
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Quit -->
-      <div class="quit"
-           ng-click="vm.quit()">
-        Quit ✖
+        <!-- Quit -->
+        <div class="quit"
+             ng-click="vm.quit()">
+          Quit ✖
+        </div>
       </div>
     </aside>
   </div>
