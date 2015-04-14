@@ -24,8 +24,6 @@ app.use( express.static( __dirname + '/client' ));
 require( './server/routes' )( app );
 
 ///////////// Start the app
-app.listen( port, function() {
-  console.log( 'Running at:', port );
-});
+app.listen();
 
 exports = module.exports = app;
