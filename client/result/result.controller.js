@@ -33,6 +33,10 @@
     var _resetValues      = DealerService.resetValues;
     var _createLog        = _createLog;
 
+    /* test-code */
+    vm.calculateResults   = _calculateResults;
+    /* end-test-code */
+
     ///////////// Methods Declarations
     function _init() {
 
