@@ -75,4 +75,32 @@ describe( 'DealerService', function() {
 
   });
 
+  describe( '#dealerAI', function() {
+
+    it( 'should give a card to a player if he hit and has less than 21 points', function() {
+
+      var player = {
+        name  : 'Player #1',
+        hand  : [],
+        wager : 0,
+        money : 1000,
+        stand : false,
+        score : 0,
+        id    : 1
+      };
+
+      RoomService.playersData = [ player ];
+      DealerService.createDeck();
+
+      player.hand.push( DealerService.deck.splice( 50, 1 )[ 0 ]);
+      player.hand.push( DealerService.deck.splice( 50, 1 )[ 0 ]);
+
+      DealerService.dealerAI( player, 'hit' );
+
+      expect( DealerService.deck ).to.have.length( 49 );
+
+    });
+
+  });
+
 });

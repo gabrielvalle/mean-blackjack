@@ -129,8 +129,6 @@
     $scope
       .$on( 'next-player', function( evt, player ) {
 
-        DealerService.currentPlayer += 1;
-
         if ( player.id < vm.playersData.length ) {
           vm.currentPlayer = vm.playersData[ player.id ];
         } else {

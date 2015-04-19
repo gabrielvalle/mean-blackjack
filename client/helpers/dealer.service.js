@@ -155,7 +155,7 @@
 
       if ( action === 'hit' && !player.stand && player.score < 21 ) {
         _handleHit( player );
-      } else if ( action === 'stand' || player.score === 21 ) {
+      } else {
         _handleStand( player );
       }
 
