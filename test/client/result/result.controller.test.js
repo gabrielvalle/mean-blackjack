@@ -53,6 +53,18 @@ describe( 'ResultController', function() {
         stand : true,
         score : 25,
         id    : 3
+      },
+      {
+        name  : 'Player #4',
+        hand  : [
+          { name : 'J', suit : '♥' }, 
+          { name : 'Q', suit : '♥' }
+        ],
+        wager : 900,
+        money : 100,
+        stand : true,
+        score : 20,
+        id    : 4
       }
     ];
 
@@ -81,11 +93,19 @@ describe( 'ResultController', function() {
 
     });
 
-    it( 'should return Lost register', function() {
+    it( 'should return Burst register', function() {
 
       var result = ctrl.calculateResults( [ players[ 2 ]], dealer );
 
       expect( result[ 0 ].result ).to.equal( 'Burst' );
+
+    });
+
+    it( 'should return Tie / Push register', function() {
+
+      var result = ctrl.calculateResults( [ players[ 3 ]], dealer );
+
+      expect( result[ 0 ].result ).to.equal( 'Tie / Push' );
 
     });
 
