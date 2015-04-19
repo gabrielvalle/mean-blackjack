@@ -73,6 +73,14 @@ describe( 'ResultController', function() {
 
     });
 
+    it( 'should return Lost register', function() {
+
+      var result = ctrl.calculateResults( [ players[ 1 ]], dealer );
+
+      expect( result[ 0 ].result ).to.equal( 'Lost' );
+
+    });
+
   });
 
 
