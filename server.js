@@ -24,6 +24,8 @@ app.use( express.static( __dirname + '/client' ));
 require( './server/routes' )( app );
 
 ///////////// Start the app
-app.listen();
+app.listen( port, function() {
+  console.log( 'Running at http://localhost:' + port );
+});
 
 exports = module.exports = app;
