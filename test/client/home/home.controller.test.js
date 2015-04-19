@@ -3,13 +3,13 @@ var expect = chai.expect;
 describe( 'HomeController', function() {
 
   beforeEach( module( 'blackjack' ));
-  beforeEach(module( 'stateMock' ));
+  beforeEach( module( 'stateMock' ));
 
   describe( '#addRemovePlayer()', function() {
 
     beforeEach( inject( function( $controller ) {
 
-      ctrl  = $controller( 'HomeController' );
+      ctrl = $controller( 'HomeController' );
 
     }));
 
