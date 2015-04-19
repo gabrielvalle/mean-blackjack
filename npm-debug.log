@@ -1,11 +1,23 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '--save', 'express' ]
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'karma-mocha',
+1 verbose cli   'npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'karma-phantomjs-launcher',
+1 verbose cli   'npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'karma-chai' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
 4 verbose node symlink /usr/bin/node
 5 verbose readDependencies using package.json deps
-6 verbose cache add [ 'express', null ]
-7 verbose cache add name=undefined spec="express" args=["express",null]
+6 verbose cache add [ 'karma-mocha', null ]
+7 verbose cache add name=undefined spec="karma-mocha" args=["karma-mocha",null]
 8 verbose parsed url { protocol: null,
 8 verbose parsed url   slashes: null,
 8 verbose parsed url   auth: null,
@@ -15,312 +27,521 @@
 8 verbose parsed url   hash: null,
 8 verbose parsed url   search: null,
 8 verbose parsed url   query: null,
-8 verbose parsed url   pathname: 'express',
-8 verbose parsed url   path: 'express',
-8 verbose parsed url   href: 'express' }
-9 silly lockFile f3c62de4-express express
-10 verbose lock express /home/eric/.npm/f3c62de4-express.lock
-11 silly lockFile f3c62de4-express express
-12 silly lockFile f3c62de4-express express
-13 verbose addNamed [ 'express', '' ]
-14 verbose addNamed [ null, '*' ]
-15 silly lockFile 64a534c1-express express@
-16 verbose lock express@ /home/eric/.npm/64a534c1-express.lock
-17 silly addNameRange { name: 'express', range: '*', hasData: false }
-18 verbose request where is /express
-19 verbose request registry https://registry.npmjs.org/
-20 verbose request id 92b90f88904f769b
-21 verbose url raw /express
-22 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
-23 verbose url resolved https://registry.npmjs.org/express
-24 verbose request where is https://registry.npmjs.org/express
-25 info trying registry request attempt 1 at 20:58:04
-26 verbose etag "AF93FCRJSCRI0LQ1926JJZEXE"
-27 http GET https://registry.npmjs.org/express
-28 http 200 https://registry.npmjs.org/express
-29 silly registry.get cb [ 200,
-29 silly registry.get   { date: 'Sun, 12 Apr 2015 23:58:04 GMT',
-29 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-29 silly registry.get     etag: '"CA6FCGP0P1DA3K5E0QJW72MYV"',
-29 silly registry.get     'content-type': 'application/json',
-29 silly registry.get     'cache-control': 'max-age=60',
-29 silly registry.get     'content-length': '492224',
-29 silly registry.get     'accept-ranges': 'bytes',
-29 silly registry.get     via: '1.1 varnish',
-29 silly registry.get     age: '49',
-29 silly registry.get     'x-served-by': 'cache-jfk1033-JFK',
-29 silly registry.get     'x-cache': 'HIT',
-29 silly registry.get     'x-cache-hits': '1',
-29 silly registry.get     'x-timer': 'S1428883084.905622,VS0,VE2',
-29 silly registry.get     vary: 'Accept',
-29 silly registry.get     'keep-alive': 'timeout=10, max=50',
-29 silly registry.get     connection: 'Keep-Alive' } ]
-30 silly addNameRange number 2 { name: 'express', range: '*', hasData: true }
-31 silly addNameRange versions [ 'express',
-31 silly addNameRange   [ '0.14.0',
-31 silly addNameRange     '0.14.1',
-31 silly addNameRange     '1.0.0',
-31 silly addNameRange     '1.0.1',
-31 silly addNameRange     '1.0.2',
-31 silly addNameRange     '1.0.3',
-31 silly addNameRange     '1.0.4',
-31 silly addNameRange     '1.0.5',
-31 silly addNameRange     '1.0.6',
-31 silly addNameRange     '1.0.7',
-31 silly addNameRange     '1.0.8',
-31 silly addNameRange     '2.0.0',
-31 silly addNameRange     '2.1.0',
-31 silly addNameRange     '2.1.1',
-31 silly addNameRange     '2.2.0',
-31 silly addNameRange     '2.2.1',
-31 silly addNameRange     '2.2.2',
-31 silly addNameRange     '2.3.0',
-31 silly addNameRange     '2.3.1',
-31 silly addNameRange     '2.3.2',
-31 silly addNameRange     '2.3.3',
-31 silly addNameRange     '2.3.4',
-31 silly addNameRange     '2.3.5',
-31 silly addNameRange     '2.3.6',
-31 silly addNameRange     '2.3.7',
-31 silly addNameRange     '2.3.8',
-31 silly addNameRange     '2.3.9',
-31 silly addNameRange     '2.3.10',
-31 silly addNameRange     '2.3.11',
-31 silly addNameRange     '2.3.12',
-31 silly addNameRange     '2.4.0',
-31 silly addNameRange     '2.4.1',
-31 silly addNameRange     '2.4.2',
-31 silly addNameRange     '2.4.3',
-31 silly addNameRange     '2.4.4',
-31 silly addNameRange     '2.4.5',
-31 silly addNameRange     '2.4.6',
-31 silly addNameRange     '2.4.7',
-31 silly addNameRange     '2.5.0',
-31 silly addNameRange     '2.5.1',
-31 silly addNameRange     '2.5.2',
-31 silly addNameRange     '2.5.3',
-31 silly addNameRange     '2.5.4',
-31 silly addNameRange     '2.5.5',
-31 silly addNameRange     '2.5.6',
-31 silly addNameRange     '2.5.7',
-31 silly addNameRange     '2.5.8',
-31 silly addNameRange     '2.5.9',
-31 silly addNameRange     '2.5.10',
-31 silly addNameRange     '2.5.11',
-31 silly addNameRange     '3.0.0',
-31 silly addNameRange     '3.0.1',
-31 silly addNameRange     '3.0.2',
-31 silly addNameRange     '3.0.3',
-31 silly addNameRange     '3.0.4',
-31 silly addNameRange     '3.0.5',
-31 silly addNameRange     '3.0.6',
-31 silly addNameRange     '3.1.0',
-31 silly addNameRange     '3.1.1',
-31 silly addNameRange     '3.1.2',
-31 silly addNameRange     '3.2.0',
-31 silly addNameRange     '3.2.1',
-31 silly addNameRange     '3.2.2',
-31 silly addNameRange     '3.2.3',
-31 silly addNameRange     '3.2.4',
-31 silly addNameRange     '3.2.5',
-31 silly addNameRange     '3.2.6',
-31 silly addNameRange     '3.3.0',
-31 silly addNameRange     '3.3.1',
-31 silly addNameRange     '3.3.2',
-31 silly addNameRange     '3.3.3',
-31 silly addNameRange     '3.3.4',
-31 silly addNameRange     '3.3.5',
-31 silly addNameRange     '3.3.6',
-31 silly addNameRange     '1.0.0-beta',
-31 silly addNameRange     '1.0.0-beta2',
-31 silly addNameRange     '1.0.0-rc',
-31 silly addNameRange     '1.0.0-rc2',
-31 silly addNameRange     '1.0.0-rc3',
-31 silly addNameRange     '1.0.0-rc4',
-31 silly addNameRange     '2.0.0-beta',
-31 silly addNameRange     '2.0.0-beta2',
-31 silly addNameRange     '2.0.0-beta3',
-31 silly addNameRange     '2.0.0-rc',
-31 silly addNameRange     '2.0.0-rc2',
-31 silly addNameRange     '2.0.0-rc3',
-31 silly addNameRange     '3.0.0-alpha1',
-31 silly addNameRange     '3.0.0-alpha2',
-31 silly addNameRange     '3.0.0-alpha3',
-31 silly addNameRange     '3.0.0-alpha4',
-31 silly addNameRange     '3.0.0-alpha5',
-31 silly addNameRange     '3.0.0-beta1',
-31 silly addNameRange     '3.0.0-beta2',
-31 silly addNameRange     '3.0.0-beta3',
-31 silly addNameRange     '3.0.0-beta4',
-31 silly addNameRange     '3.0.0-beta6',
-31 silly addNameRange     '3.0.0-beta7',
-31 silly addNameRange     '3.0.0-rc1',
-31 silly addNameRange     '3.0.0-rc2',
-31 silly addNameRange     '3.0.0-rc3',
-31 silly addNameRange     '3.0.0-rc4',
-31 silly addNameRange     '3.0.0-rc5',
-31 silly addNameRange     '3.3.7',
-31 silly addNameRange     '3.3.8',
-31 silly addNameRange     '3.4.0',
-31 silly addNameRange     '3.4.1',
-31 silly addNameRange     '3.4.2',
-31 silly addNameRange     '3.4.3',
-31 silly addNameRange     '3.4.4',
-31 silly addNameRange     '3.4.5',
-31 silly addNameRange     '3.4.6',
-31 silly addNameRange     '3.4.7',
-31 silly addNameRange     '3.4.8',
-31 silly addNameRange     '4.0.0-rc1',
-31 silly addNameRange     '4.0.0-rc2',
-31 silly addNameRange     '3.5.0',
-31 silly addNameRange     '4.0.0-rc3',
-31 silly addNameRange     '4.0.0-rc4',
-31 silly addNameRange     '3.5.1',
-31 silly addNameRange     '4.0.0',
-31 silly addNameRange     '3.5.2',
-31 silly addNameRange     '4.1.0',
-31 silly addNameRange     '4.1.1',
-31 silly addNameRange     '3.5.3',
-31 silly addNameRange     '4.1.2',
-31 silly addNameRange     '3.6.0',
-31 silly addNameRange     '4.2.0',
-31 silly addNameRange     '3.7.0',
-31 silly addNameRange     '3.8.0',
-31 silly addNameRange     '4.3.0',
-31 silly addNameRange     '4.3.1',
-31 silly addNameRange     '3.8.1',
-31 silly addNameRange     '4.3.2',
-31 silly addNameRange     '3.9.0',
-31 silly addNameRange     '4.4.0',
-31 silly addNameRange     '4.4.1',
-31 silly addNameRange     '3.10.0',
-31 silly addNameRange     '3.10.1',
-31 silly addNameRange     '3.10.2',
-31 silly addNameRange     '3.10.3',
-31 silly addNameRange     '3.10.4',
-31 silly addNameRange     '4.4.2',
-31 silly addNameRange     '3.10.5',
-31 silly addNameRange     '4.4.3',
-31 silly addNameRange     '3.11.0',
-31 silly addNameRange     '4.4.4',
-31 silly addNameRange     '3.12.0',
-31 silly addNameRange     '3.12.1',
-31 silly addNameRange     '4.4.5',
-31 silly addNameRange     '3.13.0',
-31 silly addNameRange     '4.5.0',
-31 silly addNameRange     '4.5.1',
-31 silly addNameRange     '3.14.0',
-31 silly addNameRange     '4.6.0',
-31 silly addNameRange     '4.6.1',
-31 silly addNameRange     '3.15.0',
-31 silly addNameRange     '4.7.0',
-31 silly addNameRange     '3.15.1',
-31 silly addNameRange     '4.7.1',
-31 silly addNameRange     '3.15.2',
-31 silly addNameRange     '4.7.2',
-31 silly addNameRange     '4.7.3',
-31 silly addNameRange     '3.15.3',
-31 silly addNameRange     '4.7.4',
-31 silly addNameRange     '3.16.0',
-31 silly addNameRange     '4.8.0',
-31 silly addNameRange     '3.16.1',
-31 silly addNameRange     '4.8.1',
-31 silly addNameRange     '3.16.2',
-31 silly addNameRange     '4.8.2',
-31 silly addNameRange     '3.16.3',
-31 silly addNameRange     '3.16.4',
-31 silly addNameRange     '4.8.3',
-31 silly addNameRange     '3.16.5',
-31 silly addNameRange     '3.16.6',
-31 silly addNameRange     '4.8.4',
-31 silly addNameRange     '3.16.7',
-31 silly addNameRange     '4.8.5',
-31 silly addNameRange     '3.16.8',
-31 silly addNameRange     '4.8.6',
-31 silly addNameRange     '3.16.9',
-31 silly addNameRange     '4.8.7',
-31 silly addNameRange     '3.16.10',
-31 silly addNameRange     '4.8.8',
-31 silly addNameRange     '3.17.0',
-31 silly addNameRange     '3.17.1',
-31 silly addNameRange     '4.9.0',
-31 silly addNameRange     '3.17.2',
-31 silly addNameRange     '4.9.1',
-31 silly addNameRange     '4.9.2',
-31 silly addNameRange     '3.17.3',
-31 silly addNameRange     '4.9.3',
-31 silly addNameRange     '3.17.4',
-31 silly addNameRange     '4.9.4',
-31 silly addNameRange     '3.17.5',
-31 silly addNameRange     '4.9.5',
-31 silly addNameRange     '3.17.6',
-31 silly addNameRange     '3.17.7',
-31 silly addNameRange     '4.9.6',
-31 silly addNameRange     '4.9.7',
-31 silly addNameRange     '3.17.8',
-31 silly addNameRange     '4.9.8',
-31 silly addNameRange     '3.18.0',
-31 silly addNameRange     '3.18.1',
-31 silly addNameRange     '4.10.0',
-31 silly addNameRange     '3.18.2',
-31 silly addNameRange     '4.10.1',
-31 silly addNameRange     '5.0.0-alpha.1',
-31 silly addNameRange     '3.18.3',
-31 silly addNameRange     '4.10.2',
-31 silly addNameRange     '3.18.4',
-31 silly addNameRange     '4.10.3',
-31 silly addNameRange     '4.10.4',
-31 silly addNameRange     '4.10.5',
-31 silly addNameRange     '3.18.5',
-31 silly addNameRange     '3.18.6',
-31 silly addNameRange     '4.10.6',
-31 silly addNameRange     '4.10.7',
-31 silly addNameRange     '3.19.0',
-31 silly addNameRange     '4.10.8',
-31 silly addNameRange     '4.11.0',
-31 silly addNameRange     '3.19.1',
-31 silly addNameRange     '4.11.1',
-31 silly addNameRange     '3.19.2',
-31 silly addNameRange     '4.11.2',
-31 silly addNameRange     '3.20.0',
-31 silly addNameRange     '4.12.0',
-31 silly addNameRange     '3.20.1',
-31 silly addNameRange     '4.12.1',
-31 silly addNameRange     '4.12.2',
-31 silly addNameRange     '3.20.2',
-31 silly addNameRange     '4.12.3' ] ]
-32 verbose addNamed [ 'express', '4.12.3' ]
-33 verbose addNamed [ '4.12.3', '4.12.3' ]
-34 silly lockFile 0b3fc563-express-4-12-3 express@4.12.3
-35 verbose lock express@4.12.3 /home/eric/.npm/0b3fc563-express-4-12-3.lock
-36 silly lockFile c3db49de-s-org-express-express-4-12-3-tgz https://registry.npmjs.org/express/-/express-4.12.3.tgz
-37 verbose lock https://registry.npmjs.org/express/-/express-4.12.3.tgz /home/eric/.npm/c3db49de-s-org-express-express-4-12-3-tgz.lock
-38 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-4.12.3.tgz',
-38 verbose addRemoteTarball   '6b9d94aec5ae03270d86d390c277a8c5a5ad0ee2' ]
-39 info retry fetch attempt 1 at 20:58:06
-40 verbose fetch to= /tmp/npm-20043-mr0svnFl/registry.npmjs.org/express/-/express-4.12.3.tgz
-41 http GET https://registry.npmjs.org/express/-/express-4.12.3.tgz
-42 http 200 https://registry.npmjs.org/express/-/express-4.12.3.tgz
-43 silly lockFile c3db49de-s-org-express-express-4-12-3-tgz https://registry.npmjs.org/express/-/express-4.12.3.tgz
-44 silly lockFile c3db49de-s-org-express-express-4-12-3-tgz https://registry.npmjs.org/express/-/express-4.12.3.tgz
-45 silly lockFile 0b3fc563-express-4-12-3 express@4.12.3
-46 silly lockFile 0b3fc563-express-4-12-3 express@4.12.3
-47 silly lockFile 64a534c1-express express@
-48 silly lockFile 64a534c1-express express@
-49 error Error: EACCES, mkdir '/home/eric/.npm/express/4.12.3'
-49 error  { [Error: EACCES, mkdir '/home/eric/.npm/express/4.12.3']
-49 error   errno: 3,
-49 error   code: 'EACCES',
-49 error   path: '/home/eric/.npm/express/4.12.3',
-49 error   parent: 'mean-blackjack' }
-50 error Please try running this command again as root/Administrator.
-51 error System Linux 3.13.0-24-generic
-52 error command "/usr/bin/node" "/usr/bin/npm" "install" "--save" "express"
-53 error cwd /home/eric/github/mean-blackjack
-54 error node -v v0.10.33
-55 error npm -v 1.4.28
-56 error path /home/eric/.npm/express/4.12.3
-57 error code EACCES
-58 error errno 3
-59 error stack Error: EACCES, mkdir '/home/eric/.npm/express/4.12.3'
-60 verbose exit [ 3, true ]
+8 verbose parsed url   pathname: 'karma-mocha',
+8 verbose parsed url   path: 'karma-mocha',
+8 verbose parsed url   href: 'karma-mocha' }
+9 verbose cache add [ 'npm', null ]
+10 verbose cache add name=undefined spec="npm" args=["npm",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'npm',
+11 verbose parsed url   path: 'npm',
+11 verbose parsed url   href: 'npm' }
+12 verbose cache add [ 'install', null ]
+13 verbose cache add name=undefined spec="install" args=["install",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'install',
+14 verbose parsed url   path: 'install',
+14 verbose parsed url   href: 'install' }
+15 verbose cache add [ 'karma-phantomjs-launcher', null ]
+16 verbose cache add name=undefined spec="karma-phantomjs-launcher" args=["karma-phantomjs-launcher",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'karma-phantomjs-launcher',
+17 verbose parsed url   path: 'karma-phantomjs-launcher',
+17 verbose parsed url   href: 'karma-phantomjs-launcher' }
+18 verbose cache add [ 'npm', null ]
+19 verbose cache add name=undefined spec="npm" args=["npm",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'npm',
+20 verbose parsed url   path: 'npm',
+20 verbose parsed url   href: 'npm' }
+21 verbose cache add [ 'install', null ]
+22 verbose cache add name=undefined spec="install" args=["install",null]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: 'install',
+23 verbose parsed url   path: 'install',
+23 verbose parsed url   href: 'install' }
+24 verbose cache add [ 'karma-chai', null ]
+25 verbose cache add name=undefined spec="karma-chai" args=["karma-chai",null]
+26 verbose parsed url { protocol: null,
+26 verbose parsed url   slashes: null,
+26 verbose parsed url   auth: null,
+26 verbose parsed url   host: null,
+26 verbose parsed url   port: null,
+26 verbose parsed url   hostname: null,
+26 verbose parsed url   hash: null,
+26 verbose parsed url   search: null,
+26 verbose parsed url   query: null,
+26 verbose parsed url   pathname: 'karma-chai',
+26 verbose parsed url   path: 'karma-chai',
+26 verbose parsed url   href: 'karma-chai' }
+27 silly lockFile 1e7ec470-karma-mocha karma-mocha
+28 verbose lock karma-mocha /home/eric/.npm/1e7ec470-karma-mocha.lock
+29 silly lockFile 660051d1-npm npm
+30 verbose lock npm /home/eric/.npm/660051d1-npm.lock
+31 silly lockFile 89fb511f-install install
+32 verbose lock install /home/eric/.npm/89fb511f-install.lock
+33 silly lockFile e0cbf986-karma-phantomjs-launcher karma-phantomjs-launcher
+34 verbose lock karma-phantomjs-launcher /home/eric/.npm/e0cbf986-karma-phantomjs-launcher.lock
+35 silly lockFile 660051d1-npm npm
+36 verbose lock npm /home/eric/.npm/660051d1-npm.lock
+37 silly lockFile 89fb511f-install install
+38 verbose lock install /home/eric/.npm/89fb511f-install.lock
+39 silly lockFile 693be857-karma-chai karma-chai
+40 verbose lock karma-chai /home/eric/.npm/693be857-karma-chai.lock
+41 silly lockFile 1e7ec470-karma-mocha karma-mocha
+42 silly lockFile 1e7ec470-karma-mocha karma-mocha
+43 silly lockFile 660051d1-npm npm
+44 silly lockFile 660051d1-npm npm
+45 silly lockFile 89fb511f-install install
+46 silly lockFile 89fb511f-install install
+47 silly lockFile e0cbf986-karma-phantomjs-launcher karma-phantomjs-launcher
+48 silly lockFile e0cbf986-karma-phantomjs-launcher karma-phantomjs-launcher
+49 silly lockFile 693be857-karma-chai karma-chai
+50 silly lockFile 693be857-karma-chai karma-chai
+51 verbose addNamed [ 'karma-mocha', '' ]
+52 verbose addNamed [ null, '*' ]
+53 silly lockFile 935570b3-karma-mocha karma-mocha@
+54 verbose lock karma-mocha@ /home/eric/.npm/935570b3-karma-mocha.lock
+55 verbose addNamed [ 'npm', '' ]
+56 verbose addNamed [ null, '*' ]
+57 silly lockFile 2f990b75-npm npm@
+58 verbose lock npm@ /home/eric/.npm/2f990b75-npm.lock
+59 verbose addNamed [ 'install', '' ]
+60 verbose addNamed [ null, '*' ]
+61 silly lockFile cadb329f-install install@
+62 verbose lock install@ /home/eric/.npm/cadb329f-install.lock
+63 verbose addNamed [ 'karma-phantomjs-launcher', '' ]
+64 verbose addNamed [ null, '*' ]
+65 silly lockFile cdd40d81-karma-phantomjs-launcher karma-phantomjs-launcher@
+66 verbose lock karma-phantomjs-launcher@ /home/eric/.npm/cdd40d81-karma-phantomjs-launcher.lock
+67 verbose addNamed [ 'karma-chai', '' ]
+68 verbose addNamed [ null, '*' ]
+69 silly lockFile 0676974a-karma-chai karma-chai@
+70 verbose lock karma-chai@ /home/eric/.npm/0676974a-karma-chai.lock
+71 silly addNameRange { name: 'karma-mocha', range: '*', hasData: false }
+72 silly addNameRange { name: 'npm', range: '*', hasData: false }
+73 silly addNameRange { name: 'karma-phantomjs-launcher', range: '*', hasData: false }
+74 silly addNameRange { name: 'install', range: '*', hasData: false }
+75 verbose request where is /install
+76 verbose request registry https://registry.npmjs.org/
+77 verbose request id 78714ebdbda4986b
+78 verbose url raw /install
+79 verbose url resolving [ 'https://registry.npmjs.org/', './install' ]
+80 verbose url resolved https://registry.npmjs.org/install
+81 verbose request where is https://registry.npmjs.org/install
+82 info trying registry request attempt 1 at 21:37:48
+83 http GET https://registry.npmjs.org/install
+84 silly addNameRange { name: 'karma-chai', range: '*', hasData: false }
+85 verbose request where is /karma-mocha
+86 verbose request registry https://registry.npmjs.org/
+87 verbose url raw /karma-mocha
+88 verbose url resolving [ 'https://registry.npmjs.org/', './karma-mocha' ]
+89 verbose url resolved https://registry.npmjs.org/karma-mocha
+90 verbose request where is https://registry.npmjs.org/karma-mocha
+91 info trying registry request attempt 1 at 21:37:48
+92 verbose etag "1Z0OVSUEJY61BW851FHABBHWU"
+93 http GET https://registry.npmjs.org/karma-mocha
+94 verbose request where is /karma-phantomjs-launcher
+95 verbose request registry https://registry.npmjs.org/
+96 verbose url raw /karma-phantomjs-launcher
+97 verbose url resolving [ 'https://registry.npmjs.org/', './karma-phantomjs-launcher' ]
+98 verbose url resolved https://registry.npmjs.org/karma-phantomjs-launcher
+99 verbose request where is https://registry.npmjs.org/karma-phantomjs-launcher
+100 info trying registry request attempt 1 at 21:37:48
+101 verbose etag "8SS6P4R8XMW8A005XSDPMECFM"
+102 http GET https://registry.npmjs.org/karma-phantomjs-launcher
+103 verbose request where is /karma-chai
+104 verbose request registry https://registry.npmjs.org/
+105 verbose url raw /karma-chai
+106 verbose url resolving [ 'https://registry.npmjs.org/', './karma-chai' ]
+107 verbose url resolved https://registry.npmjs.org/karma-chai
+108 verbose request where is https://registry.npmjs.org/karma-chai
+109 info trying registry request attempt 1 at 21:37:48
+110 verbose etag "6XTG2GV7O3Z0THRLRLTP8WW92"
+111 http GET https://registry.npmjs.org/karma-chai
+112 verbose request where is /npm
+113 verbose request registry https://registry.npmjs.org/
+114 verbose url raw /npm
+115 verbose url resolving [ 'https://registry.npmjs.org/', './npm' ]
+116 verbose url resolved https://registry.npmjs.org/npm
+117 verbose request where is https://registry.npmjs.org/npm
+118 info trying registry request attempt 1 at 21:37:48
+119 verbose etag "1N83MMTG7PZJ4V0X647BKD6YU"
+120 http GET https://registry.npmjs.org/npm
+121 silly lockFile 89fb511f-install install
+122 silly lockFile 89fb511f-install install
+123 silly lockFile 660051d1-npm npm
+124 silly lockFile 660051d1-npm npm
+125 verbose addNamed [ 'install', '' ]
+126 verbose addNamed [ 'npm', '' ]
+127 http 304 https://registry.npmjs.org/karma-phantomjs-launcher
+128 silly registry.get cb [ 304,
+128 silly registry.get   { date: 'Sun, 19 Apr 2015 00:37:49 GMT',
+128 silly registry.get     server: 'Apache',
+128 silly registry.get     via: '1.1 varnish',
+128 silly registry.get     'last-modified': 'Sun, 19 Apr 2015 00:37:49 GMT',
+128 silly registry.get     'cache-control': 'max-age=60',
+128 silly registry.get     etag: '"8SS6P4R8XMW8A005XSDPMECFM"',
+128 silly registry.get     age: '29',
+128 silly registry.get     'x-served-by': 'cache-iad2131-IAD',
+128 silly registry.get     'x-cache': 'HIT',
+128 silly registry.get     'x-cache-hits': '1',
+128 silly registry.get     'x-timer': 'S1429403869.950736,VS0,VE0',
+128 silly registry.get     vary: 'Accept',
+128 silly registry.get     'content-length': '0',
+128 silly registry.get     'keep-alive': 'timeout=10, max=50',
+128 silly registry.get     connection: 'Keep-Alive' } ]
+129 verbose etag https://registry.npmjs.org/karma-phantomjs-launcher from cache
+130 silly addNameRange number 2 { name: 'karma-phantomjs-launcher', range: '*', hasData: true }
+131 silly addNameRange versions [ 'karma-phantomjs-launcher',
+131 silly addNameRange   [ '0.0.1',
+131 silly addNameRange     '0.0.2',
+131 silly addNameRange     '0.0.3',
+131 silly addNameRange     '0.1.0',
+131 silly addNameRange     '0.1.1',
+131 silly addNameRange     '0.1.2',
+131 silly addNameRange     '0.1.3',
+131 silly addNameRange     '0.1.4' ] ]
+132 verbose addNamed [ 'karma-phantomjs-launcher', '0.1.4' ]
+133 verbose addNamed [ '0.1.4', '0.1.4' ]
+134 silly lockFile 5b4ecc13-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@0.1.4
+135 verbose lock karma-phantomjs-launcher@0.1.4 /home/eric/.npm/5b4ecc13-karma-phantomjs-launcher-0-1-4.lock
+136 silly lockFile 5b4ecc13-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@0.1.4
+137 silly lockFile 5b4ecc13-karma-phantomjs-launcher-0-1-4 karma-phantomjs-launcher@0.1.4
+138 silly lockFile cdd40d81-karma-phantomjs-launcher karma-phantomjs-launcher@
+139 silly lockFile cdd40d81-karma-phantomjs-launcher karma-phantomjs-launcher@
+140 http 200 https://registry.npmjs.org/install
+141 silly registry.get cb [ 200,
+141 silly registry.get   { date: 'Sun, 19 Apr 2015 00:37:50 GMT',
+141 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+141 silly registry.get     etag: '"113P54VHX3FJP3LDSDBKOLHUM"',
+141 silly registry.get     'content-type': 'application/json',
+141 silly registry.get     'cache-control': 'max-age=60',
+141 silly registry.get     'content-length': '10412',
+141 silly registry.get     'accept-ranges': 'bytes',
+141 silly registry.get     via: '1.1 varnish',
+141 silly registry.get     age: '0',
+141 silly registry.get     'x-served-by': 'cache-iad2135-IAD',
+141 silly registry.get     'x-cache': 'HIT',
+141 silly registry.get     'x-cache-hits': '1',
+141 silly registry.get     'x-timer': 'S1429403869.953797,VS0,VE58',
+141 silly registry.get     vary: 'Accept',
+141 silly registry.get     'keep-alive': 'timeout=10, max=50',
+141 silly registry.get     connection: 'Keep-Alive' } ]
+142 silly addNameRange number 2 { name: 'install', range: '*', hasData: true }
+143 silly addNameRange versions [ 'install',
+143 silly addNameRange   [ '0.1.1',
+143 silly addNameRange     '0.1.2',
+143 silly addNameRange     '0.1.3',
+143 silly addNameRange     '0.1.4',
+143 silly addNameRange     '0.1.5',
+143 silly addNameRange     '0.1.6',
+143 silly addNameRange     '0.1.7',
+143 silly addNameRange     '0.1.8' ] ]
+144 verbose addNamed [ 'install', '0.1.8' ]
+145 verbose addNamed [ '0.1.8', '0.1.8' ]
+146 silly lockFile 584c81dc-install-0-1-8 install@0.1.8
+147 verbose lock install@0.1.8 /home/eric/.npm/584c81dc-install-0-1-8.lock
+148 silly lockFile cb455ad4-js-org-install-install-0-1-8-tgz https://registry.npmjs.org/install/-/install-0.1.8.tgz
+149 verbose lock https://registry.npmjs.org/install/-/install-0.1.8.tgz /home/eric/.npm/cb455ad4-js-org-install-install-0-1-8-tgz.lock
+150 verbose addRemoteTarball [ 'https://registry.npmjs.org/install/-/install-0.1.8.tgz',
+150 verbose addRemoteTarball   '9980ef93e30dfb534778d163bc86ddd472ad5fe8' ]
+151 info retry fetch attempt 1 at 21:37:49
+152 verbose fetch to= /tmp/npm-28309-jioQUN0Q/registry.npmjs.org/install/-/install-0.1.8.tgz
+153 http GET https://registry.npmjs.org/install/-/install-0.1.8.tgz
+154 http 304 https://registry.npmjs.org/karma-chai
+155 silly registry.get cb [ 304,
+155 silly registry.get   { date: 'Sun, 19 Apr 2015 00:37:49 GMT',
+155 silly registry.get     server: 'Apache',
+155 silly registry.get     via: '1.1 varnish',
+155 silly registry.get     'last-modified': 'Sun, 19 Apr 2015 00:37:50 GMT',
+155 silly registry.get     'cache-control': 'max-age=60',
+155 silly registry.get     etag: '"6XTG2GV7O3Z0THRLRLTP8WW92"',
+155 silly registry.get     age: '0',
+155 silly registry.get     'x-served-by': 'cache-iad2126-IAD',
+155 silly registry.get     'x-cache': 'HIT',
+155 silly registry.get     'x-cache-hits': '1',
+155 silly registry.get     'x-timer': 'S1429403869.956483,VS0,VE352',
+155 silly registry.get     vary: 'Accept',
+155 silly registry.get     'content-length': '0',
+155 silly registry.get     'keep-alive': 'timeout=10, max=50',
+155 silly registry.get     connection: 'Keep-Alive' } ]
+156 verbose etag https://registry.npmjs.org/karma-chai from cache
+157 silly addNameRange number 2 { name: 'karma-chai', range: '*', hasData: true }
+158 silly addNameRange versions [ 'karma-chai', [ '0.0.1', '0.0.2', '0.1.0' ] ]
+159 verbose addNamed [ 'karma-chai', '0.1.0' ]
+160 verbose addNamed [ '0.1.0', '0.1.0' ]
+161 silly lockFile dd27daab-karma-chai-0-1-0 karma-chai@0.1.0
+162 verbose lock karma-chai@0.1.0 /home/eric/.npm/dd27daab-karma-chai-0-1-0.lock
+163 silly lockFile dd27daab-karma-chai-0-1-0 karma-chai@0.1.0
+164 silly lockFile dd27daab-karma-chai-0-1-0 karma-chai@0.1.0
+165 silly lockFile 0676974a-karma-chai karma-chai@
+166 silly lockFile 0676974a-karma-chai karma-chai@
+167 http 200 https://registry.npmjs.org/install/-/install-0.1.8.tgz
+168 silly lockFile cb455ad4-js-org-install-install-0-1-8-tgz https://registry.npmjs.org/install/-/install-0.1.8.tgz
+169 silly lockFile cb455ad4-js-org-install-install-0-1-8-tgz https://registry.npmjs.org/install/-/install-0.1.8.tgz
+170 silly lockFile 584c81dc-install-0-1-8 install@0.1.8
+171 silly lockFile 584c81dc-install-0-1-8 install@0.1.8
+172 silly lockFile cadb329f-install install@
+173 silly lockFile cadb329f-install install@
+174 http 304 https://registry.npmjs.org/karma-mocha
+175 silly registry.get cb [ 304,
+175 silly registry.get   { date: 'Sun, 19 Apr 2015 00:37:50 GMT',
+175 silly registry.get     server: 'Apache',
+175 silly registry.get     via: '1.1 varnish',
+175 silly registry.get     'last-modified': 'Sun, 19 Apr 2015 00:37:51 GMT',
+175 silly registry.get     'cache-control': 'max-age=60',
+175 silly registry.get     etag: '"1Z0OVSUEJY61BW851FHABBHWU"',
+175 silly registry.get     age: '0',
+175 silly registry.get     'x-served-by': 'cache-iad2131-IAD',
+175 silly registry.get     'x-cache': 'HIT',
+175 silly registry.get     'x-cache-hits': '1',
+175 silly registry.get     'x-timer': 'S1429403870.940255,VS0,VE352',
+175 silly registry.get     vary: 'Accept',
+175 silly registry.get     'content-length': '0',
+175 silly registry.get     'keep-alive': 'timeout=10, max=50',
+175 silly registry.get     connection: 'Keep-Alive' } ]
+176 verbose etag https://registry.npmjs.org/karma-mocha from cache
+177 silly addNameRange number 2 { name: 'karma-mocha', range: '*', hasData: true }
+178 silly addNameRange versions [ 'karma-mocha',
+178 silly addNameRange   [ '0.0.1',
+178 silly addNameRange     '0.0.2',
+178 silly addNameRange     '0.0.3',
+178 silly addNameRange     '0.0.4',
+178 silly addNameRange     '0.1.0',
+178 silly addNameRange     '0.1.1',
+178 silly addNameRange     '0.1.3',
+178 silly addNameRange     '0.1.4',
+178 silly addNameRange     '0.1.6',
+178 silly addNameRange     '0.1.7',
+178 silly addNameRange     '0.1.8',
+178 silly addNameRange     '0.1.9',
+178 silly addNameRange     '0.1.10' ] ]
+179 verbose addNamed [ 'karma-mocha', '0.1.10' ]
+180 verbose addNamed [ '0.1.10', '0.1.10' ]
+181 silly lockFile 60f7092d-karma-mocha-0-1-10 karma-mocha@0.1.10
+182 verbose lock karma-mocha@0.1.10 /home/eric/.npm/60f7092d-karma-mocha-0-1-10.lock
+183 silly lockFile 60f7092d-karma-mocha-0-1-10 karma-mocha@0.1.10
+184 silly lockFile 60f7092d-karma-mocha-0-1-10 karma-mocha@0.1.10
+185 silly lockFile 935570b3-karma-mocha karma-mocha@
+186 silly lockFile 935570b3-karma-mocha karma-mocha@
+187 http 200 https://registry.npmjs.org/npm
+188 silly registry.get cb [ 200,
+188 silly registry.get   { date: 'Sun, 19 Apr 2015 00:37:51 GMT',
+188 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+188 silly registry.get     etag: '"6XIBS88U4MLCTG13JTFMAC26I"',
+188 silly registry.get     'content-type': 'application/json',
+188 silly registry.get     'cache-control': 'max-age=60',
+188 silly registry.get     'content-length': '2314077',
+188 silly registry.get     'accept-ranges': 'bytes',
+188 silly registry.get     via: '1.1 varnish',
+188 silly registry.get     age: '21',
+188 silly registry.get     'x-served-by': 'cache-iad2142-IAD',
+188 silly registry.get     'x-cache': 'HIT',
+188 silly registry.get     'x-cache-hits': '1',
+188 silly registry.get     'x-timer': 'S1429403871.826209,VS0,VE11',
+188 silly registry.get     vary: 'Accept',
+188 silly registry.get     'keep-alive': 'timeout=10, max=50',
+188 silly registry.get     connection: 'Keep-Alive' } ]
+189 silly addNameRange number 2 { name: 'npm', range: '*', hasData: true }
+190 silly addNameRange versions [ 'npm',
+190 silly addNameRange   [ '1.1.25',
+190 silly addNameRange     '1.2.32',
+190 silly addNameRange     '1.3.2',
+190 silly addNameRange     '1.3.4',
+190 silly addNameRange     '1.2.20',
+190 silly addNameRange     '1.2.21',
+190 silly addNameRange     '1.2.22',
+190 silly addNameRange     '1.2.23',
+190 silly addNameRange     '1.2.24',
+190 silly addNameRange     '1.2.25',
+190 silly addNameRange     '1.2.27',
+190 silly addNameRange     '1.2.28',
+190 silly addNameRange     '1.2.30',
+190 silly addNameRange     '1.2.31',
+190 silly addNameRange     '1.3.0',
+190 silly addNameRange     '1.3.1',
+190 silly addNameRange     '1.2.19',
+190 silly addNameRange     '1.1.70',
+190 silly addNameRange     '1.1.71',
+190 silly addNameRange     '1.3.5',
+190 silly addNameRange     '1.3.6',
+190 silly addNameRange     '1.3.7',
+190 silly addNameRange     '1.3.8',
+190 silly addNameRange     '1.3.9',
+190 silly addNameRange     '1.3.10',
+190 silly addNameRange     '1.3.11',
+190 silly addNameRange     '1.3.12',
+190 silly addNameRange     '1.3.13',
+190 silly addNameRange     '1.3.14',
+190 silly addNameRange     '1.3.15',
+190 silly addNameRange     '1.3.16',
+190 silly addNameRange     '1.3.17',
+190 silly addNameRange     '1.3.18',
+190 silly addNameRange     '1.3.20',
+190 silly addNameRange     '1.3.21',
+190 silly addNameRange     '1.3.22',
+190 silly addNameRange     '1.3.23',
+190 silly addNameRange     '1.3.24',
+190 silly addNameRange     '1.3.25',
+190 silly addNameRange     '1.3.26',
+190 silly addNameRange     '1.4.0',
+190 silly addNameRange     '1.4.1',
+190 silly addNameRange     '1.4.2',
+190 silly addNameRange     '1.4.3',
+190 silly addNameRange     '1.4.4',
+190 silly addNameRange     '1.4.5',
+190 silly addNameRange     '1.4.6',
+190 silly addNameRange     '1.4.7',
+190 silly addNameRange     '1.4.8',
+190 silly addNameRange     '1.4.9',
+190 silly addNameRange     '1.4.10',
+190 silly addNameRange     '1.4.11',
+190 silly addNameRange     '1.4.12',
+190 silly addNameRange     '1.4.13',
+190 silly addNameRange     '1.4.14',
+190 silly addNameRange     '1.4.15',
+190 silly addNameRange     '1.4.16',
+190 silly addNameRange     '1.2.8000',
+190 silly addNameRange     '1.4.17',
+190 silly addNameRange     '1.4.18',
+190 silly addNameRange     '1.4.19',
+190 silly addNameRange     '1.5.0-alpha-0',
+190 silly addNameRange     '1.5.0-alpha-1',
+190 silly addNameRange     '1.4.20',
+190 silly addNameRange     '1.5.0-alpha-2',
+190 silly addNameRange     '1.4.21',
+190 silly addNameRange     '1.5.0-alpha-3',
+190 silly addNameRange     '1.5.0-alpha-4',
+190 silly addNameRange     '2.0.0-alpha-5',
+190 silly addNameRange     '1.4.22',
+190 silly addNameRange     '1.4.23',
+190 silly addNameRange     '2.0.0-alpha.6.0',
+190 silly addNameRange     '1.4.24',
+190 silly addNameRange     '2.0.0-alpha.6',
+190 silly addNameRange     '2.0.0-alpha.7',
+190 silly addNameRange     '2.0.0-beta.0',
+190 silly addNameRange     '1.4.25',
+190 silly addNameRange     '2.0.0-beta.1',
+190 silly addNameRange     '1.4.26',
+190 silly addNameRange     '2.0.0-beta.2',
+190 silly addNameRange     '1.4.27',
+190 silly addNameRange     '2.0.0-beta.3',
+190 silly addNameRange     '1.4.28',
+190 silly addNameRange     '2.0.0',
+190 silly addNameRange     '2.0.1',
+190 silly addNameRange     '2.0.2',
+190 silly addNameRange     '2.1.0',
+190 silly addNameRange     '2.1.1',
+190 silly addNameRange     '2.1.2',
+190 silly addNameRange     '2.1.3',
+190 silly addNameRange     '2.1.4',
+190 silly addNameRange     '2.1.5',
+190 silly addNameRange     '2.1.6',
+190 silly addNameRange     '2.1.7',
+190 silly addNameRange     '2.1.8',
+190 silly addNameRange     '2.1.9',
+190 silly addNameRange     '2.1.10',
+190 silly addNameRange     '2.1.11',
+190 silly addNameRange     '2.1.12',
+190 silly addNameRange     '2.1.13',
+190 silly addNameRange     '2.1.14',
+190 silly addNameRange     '2.1.15',
+190 silly addNameRange     '2.1.16',
+190 silly addNameRange     '2.1.17',
+190 silly addNameRange     '2.1.18',
+190 silly addNameRange     '2.2.0',
+190 silly addNameRange     '2.3.0',
+190 silly addNameRange     '2.4.0',
+190 silly addNameRange     '2.4.1',
+190 silly addNameRange     '2.5.0',
+190 silly addNameRange     '2.5.1',
+190 silly addNameRange     '2.6.0',
+190 silly addNameRange     '2.6.1',
+190 silly addNameRange     '2.7.0',
+190 silly addNameRange     '2.7.1',
+190 silly addNameRange     '2.7.2',
+190 silly addNameRange     '2.7.3',
+190 silly addNameRange     '2.7.4',
+190 silly addNameRange     '2.7.5',
+190 silly addNameRange     '2.7.6',
+190 silly addNameRange     '2.8.0',
+190 silly addNameRange     '2.8.1',
+190 silly addNameRange     '2.8.2',
+190 silly addNameRange     '2.8.3',
+190 silly addNameRange     '2.8.4' ] ]
+191 verbose addNamed [ 'npm', '2.8.3' ]
+192 verbose addNamed [ '2.8.3', '2.8.3' ]
+193 silly lockFile 89cd9639-npm-2-8-3 npm@2.8.3
+194 verbose lock npm@2.8.3 /home/eric/.npm/89cd9639-npm-2-8-3.lock
+195 silly lockFile 9322da07-stry-npmjs-org-npm-npm-2-8-3-tgz https://registry.npmjs.org/npm/-/npm-2.8.3.tgz
+196 verbose lock https://registry.npmjs.org/npm/-/npm-2.8.3.tgz /home/eric/.npm/9322da07-stry-npmjs-org-npm-npm-2-8-3-tgz.lock
+197 verbose addRemoteTarball [ 'https://registry.npmjs.org/npm/-/npm-2.8.3.tgz',
+197 verbose addRemoteTarball   '2ae974e172cc1043d1f5faa9c07dd3c7a8c86477' ]
+198 info retry fetch attempt 1 at 21:38:11
+199 verbose fetch to= /tmp/npm-28309-jioQUN0Q/registry.npmjs.org/npm/-/npm-2.8.3.tgz
+200 http GET https://registry.npmjs.org/npm/-/npm-2.8.3.tgz
+201 http 200 https://registry.npmjs.org/npm/-/npm-2.8.3.tgz
+202 silly lockFile 9322da07-stry-npmjs-org-npm-npm-2-8-3-tgz https://registry.npmjs.org/npm/-/npm-2.8.3.tgz
+203 silly lockFile 9322da07-stry-npmjs-org-npm-npm-2-8-3-tgz https://registry.npmjs.org/npm/-/npm-2.8.3.tgz
+204 silly lockFile 89cd9639-npm-2-8-3 npm@2.8.3
+205 silly lockFile 89cd9639-npm-2-8-3 npm@2.8.3
+206 silly lockFile 2f990b75-npm npm@
+207 silly lockFile 2f990b75-npm npm@
+208 error Error: EACCES, mkdir '/home/eric/.npm/npm/2.8.3'
+208 error  { [Error: EACCES, mkdir '/home/eric/.npm/npm/2.8.3']
+208 error   errno: 3,
+208 error   code: 'EACCES',
+208 error   path: '/home/eric/.npm/npm/2.8.3',
+208 error   parent: 'mean-blackjack' }
+209 error Please try running this command again as root/Administrator.
+210 error System Linux 3.13.0-24-generic
+211 error command "/usr/bin/node" "/usr/bin/npm" "install" "--save-dev" "karma-mocha" "npm" "install" "--save-dev" "karma-phantomjs-launcher" "npm" "install" "--save-dev" "karma-chai"
+212 error cwd /home/eric/github/mean-blackjack
+213 error node -v v0.10.33
+214 error npm -v 1.4.28
+215 error path /home/eric/.npm/npm/2.8.3
+216 error code EACCES
+217 error errno 3
+218 error stack Error: EACCES, mkdir '/home/eric/.npm/npm/2.8.3'
+219 verbose exit [ 3, true ]
