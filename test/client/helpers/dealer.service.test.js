@@ -101,6 +101,26 @@ describe( 'DealerService', function() {
 
     });
 
+    it( 'should stand the player', function() {
+
+      var player = {
+        name  : 'Player #1',
+        hand  : [],
+        wager : 0,
+        money : 1000,
+        stand : false,
+        score : 0,
+        id    : 1
+      };
+
+      RoomService.playersData = [ player ];
+
+      DealerService.dealerAI( player, 'stand' );
+
+      expect( player.stand ).to.be.true;
+
+    });
+
   });
 
 });
