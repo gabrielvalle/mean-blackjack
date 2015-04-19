@@ -147,10 +147,11 @@
 
     function quit() {
 
+      _createLog( vm.allResults );
+      
+      _resetValues();
       RoomService.playersData     = [];
       RoomService.numberOfPlayers = 1;
-      _resetValues();
-      _createLog( vm.allResults ); 
 
       $state
         .go( 'home' );
@@ -163,7 +164,12 @@
         .forEach( function( log ) {
 
           ResultService
-            .createLog( log );
+            .createLog( log )
+            .then( function( data ) {
+              console.log( 'Registered!' );
+            }, function( error ) {
+              console.log( 'Error to register.', error );
+            });
 
         });
 

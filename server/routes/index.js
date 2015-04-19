@@ -22,7 +22,7 @@ module.exports = function( app ) {
 
       log.save();
 
-      res.send( 201 );
+      res.sendStatus( 201 );
 
     });
 
