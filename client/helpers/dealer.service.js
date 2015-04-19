@@ -111,15 +111,12 @@
 
     /*
     *
-    *  Give 2 card per player
+    *  Give 2 cards per player + 2 cards for dealer
     *
     * @param {Array} players
     *
     */
     function distributeCards( players ) {
-
-      self
-        .createDeck();
 
       players
         .push({ 

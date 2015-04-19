@@ -38,6 +38,8 @@
     ///////////// Methods Declaration
     function _init() {
 
+      vm.deck = DealerService.createDeck();
+
       var players = [];
 
       if ( RoomService.playersData.length === 0 ) {

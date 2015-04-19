@@ -44,4 +44,35 @@ describe( 'DealerService', function() {
 
   });
 
+  describe( '#distributeCards()', function() {
+
+    var players,
+        deck;
+
+    it( 'should give two cards for each player', function() {
+
+      players = RoomService.createPlayers( 2 );
+      deck    = DealerService.createDeck();
+      
+      DealerService.distributeCards( players );
+
+      expect( players[ 0 ].hand ).to.have.length( 2 );
+      expect( players[ 1 ].hand ).to.have.length( 2 );
+
+    });
+
+    it( 'should remove cards from the deck', function() {
+
+      players = RoomService.createPlayers( 5 );
+      deck    = DealerService.createDeck();
+      
+      DealerService.distributeCards( players );
+
+      expect( deck ).to.have.length( 40 ); 
+      // 52cards - 10cards ( 5 players ) - 2cards ( dealer ) = 40cards
+
+    });
+
+  });
+
 });
