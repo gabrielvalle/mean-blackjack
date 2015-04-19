@@ -7,10 +7,11 @@ describe( 'RoomController', function() {
 
   describe( '#setWager()', function() {
 
+    var ctrl, scope;
+
     beforeEach( inject( function( $controller, $rootScope ) {
 
-      var scope = $rootScope.$new(); 
-
+      scope = $rootScope.$new(); 
       ctrl  = $controller( 'RoomController', {
         $scope : scope
       });

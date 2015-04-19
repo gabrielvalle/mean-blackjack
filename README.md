@@ -1,4 +1,4 @@
-# mean-blackjack
+# ♠ mean-blackjack ♠
 
 ## How to Install & Run
 
