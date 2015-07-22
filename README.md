@@ -9,13 +9,15 @@
 
 ## Run the server
 
-1. Start the server `node server.js` or `nodemon server.js`
+Start the server `node server.js` or `nodemon server.js`
 
 The application will be available at `http://localhost:3000/`
 
 ## Run the tests
 
-1. `npm test`
+```
+npm test
+```
 
 ## License
 
